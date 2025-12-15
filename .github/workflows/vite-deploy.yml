@@ -58,3 +58,5 @@ jobs:
       - name: Deploy to GitHub Pages with custom SSL
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: web-ssr-deployment
