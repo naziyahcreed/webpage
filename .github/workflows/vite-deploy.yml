@@ -49,7 +49,7 @@ jobs:
         pages: write
         id-token: write
     environment:
-      name: github-pages
+      name: web-ssr-deployment
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-slim
     steps:
