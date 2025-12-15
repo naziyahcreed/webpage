@@ -15,16 +15,16 @@ import SEO from './SEO';
  */
 const ProjectCard = ({ project, onSelect }) => (
   <div className="flex-shrink-0 w-72 md:w-80 bg-[var(--bg-secondary)] shadow-xl rounded-xl overflow-hidden border border-[var(--bg-primary)] transition duration-300 transform hover:scale-[1.02] hover:shadow-2xl hover:border-[var(--accent)] hover:border-2">
-    <div className="relative h-40 overflow-hidden ">
+    <div className="relative h-40 overflow-hidden group">
       {/* Small placeholder image for the card */}
       <img
         src={project.images && project.images.length > 0 ? project.images[0] : "https://placehold.co/800x600?text=No+Image"}
         alt={project.title}
-        className="w-full h-full object-cover transition duration-500 group-hover:opacity-80"
+        className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
       />
-      <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+      <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
          {/* Icon changed to indicate view detail rather than play video */}
-        <span className="text-white text-sm font-bold opacity-70">View Details</span>
+        <span className="text-white text-lg font-bold">View Details</span>
       </div>
     </div>
 
