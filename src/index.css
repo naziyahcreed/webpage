@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+@media (prefers-color-scheme: dark) {
+    
+}
+*{
+    font-family: serif;
+    font-weight: 500;
+}
+
+/* Base Variables - Default Theme (Dark Gray/Blueish) */
+:root {
+  --bg-primary: #111827; /* gray-900 */
+  --bg-secondary: #1F2937; /* gray-800 */
+  --text-primary: #F3F4F6; /* gray-100 */
+  --text-secondary: #9CA3AF; /* gray-400 */
+  --accent: #F9AA33;
+  --accent-secondary: #EEBA2B;
+  --navbar-bg: rgba(17, 24, 39, 0.8); /* gray-900 with opacity */
+}
+
+/* Light Theme */
+.theme-light {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F3F4F6;
+  --text-primary: #1F2937;
+  --text-secondary: #4B5563;
+  --accent: #D97706; /* Darker amber for contrast on white */
+  --accent-secondary: #B45309;
+  --navbar-bg: rgba(255, 255, 255, 0.8);
+}
+
+/* Black Theme */
+.theme-black {
+  --bg-primary: #000000;
+  --bg-secondary: #111111;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1AA;
+  --accent: #F9AA33;
+  --accent-secondary: #EEBA2B;
+  --navbar-bg: rgba(0, 0, 0, 0.8);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  font-family: serif;
+  font-weight: 500;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
