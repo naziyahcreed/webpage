@@ -40,9 +40,8 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           # Upload build folder
-          path: './build'
-      - name: Listing directories
-        run: ls -la
+          path: './dist'
+
   
   # Deployment job
   deploy:
