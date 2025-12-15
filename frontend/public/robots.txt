@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://naziyahcreed.com/sitemap.xml
