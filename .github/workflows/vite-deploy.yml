@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-slim
     permissions:
       contents: read
+      pages: write
       id-token: write
     steps:
       - name: Checkout
