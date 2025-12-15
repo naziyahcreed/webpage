@@ -1,6 +1,6 @@
 # Naziyah Creed - Webpage
 
-**Build  Status** - [![Deploy static content to Pages. @@ Script by https://gitlab.com/iamshivakumaran/](https://github.com/naziyahcreed/webpage/actions/workflows/vite-deploy.yml/badge.svg?branch=main&event=workflow_run)](https://github.com/naziyahcreed/webpage/actions/workflows/vite-deploy.yml)
+**Build  Status** - [![Deploy static content to Pages. @@ Script by https://gitlab.com/iamshivakumaran/](https://github.com/naziyahcreed/webpage/actions/workflows/vite-deploy.yml/badge.svg)](https://github.com/naziyahcreed/webpage/actions/workflows/vite-deploy.yml)
 
 **Naziyah Creed** is a modern, high-performance portfolio website designed for an **IoT & Robotics Consultancy**. It showcases projects, services, and achievements to attract students and university clients.
 
