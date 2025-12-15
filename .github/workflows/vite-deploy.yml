@@ -21,7 +21,6 @@ jobs:
     runs-on: ubuntu-slim
     permissions:
       contents: read
-      pages: write
       id-token: write
     steps:
       - name: Checkout
@@ -42,6 +41,8 @@ jobs:
         with:
           # Upload build folder
           path: './build'
+      - name: Listing directories
+        run: ls -la
   
   # Deployment job
   deploy:
