@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
-import id1 from "../assets/images/b2.jpg";
-import id2 from "../assets/images/b1.jpg";
-import id3 from "../assets/images/id3.png";
+import id1 from "/images/b2.jpg";
+import id2 from "/images/b1.jpg";
+import id3 from "/images/id3.png";
 
 const slides = [
   { id: 1, img: id1, text: "TRUST US" },

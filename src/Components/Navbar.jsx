@@ -1,4 +1,4 @@
-import logo from './../assets/images/logo.png'
+import logo from '/images/logo.png'
 import { GiCancel } from "react-icons/gi";
 import { IoMenuSharp } from "react-icons/io5";
 import { useState } from 'react';

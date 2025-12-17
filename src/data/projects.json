@@ -5,7 +5,7 @@
     "short_description": "Centralized control system for home automation using IoT.",
     "full_description": "<p>A unified interface to control lighting, climate, and security systems. Built with ESP32 microcontrollers and a React dashboard.</p>",
     "images": [
-      "/projects/smart_home_iot_1765618829955.png"
+      "/images/id1.png"
     ],
     "tags": ["IoT", "React", "ESP32", "MQTT"]
   },
@@ -15,7 +15,7 @@
     "short_description": "Robotics car capable of following complex paths.",
     "full_description": "<p>An educational robotics project demonstrating PID control algorithms. The robot uses infrared sensors to track black lines on white surfaces with high precision.</p>",
     "images": [
-      "/projects/line_follower_robot_1765618847579.png"
+      "/images/id2.png"
     ],
     "tags": ["Robotics", "Arduino", "C++", "Sensors"]
   },
@@ -25,7 +25,7 @@
     "short_description": "Real-time environmental monitoring system.",
     "full_description": "<p>Collects temperature, humidity, and pressure data and transmits it to the cloud. Features solar power for remote operation.</p>",
     "images": [
-      "/projects/iot_weather_station_1765618866414.png"
+      "/images/id3.png"
     ],
     "tags": ["IoT", "Cloud Computing", "Sensors", "Solar"]
   },
@@ -35,7 +35,7 @@
     "short_description": "Automated plant watering based on soil moisture.",
     "full_description": "<p>An intelligent system that monitors soil moisture levels and automatically waters plants when needed, preventing over or under-watering.</p>",
     "images": [
-      "/projects/automated_plant_watering_1765618888998.png"
+      "/images/id4.png"
     ],
     "tags": ["IoT", "Automation", "Raspberry Pi", "Python"]
   }
