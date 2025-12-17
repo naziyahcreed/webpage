@@ -39,8 +39,10 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
+          name: web-ssr-deployment
           # Upload build folder
-          path: './build'
+          path: './dist'
+
   
   # Deployment job
   deploy:
@@ -49,10 +51,12 @@ jobs:
         pages: write
         id-token: write
     environment:
-      name: github-pages
+      name: web-ssr-deployment
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-slim
     steps:
       - name: Deploy to GitHub Pages with custom SSL
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: web-ssr-deployment
