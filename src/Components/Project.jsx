@@ -20,9 +20,9 @@ const ProjectCard = ({ project, onSelect }) => (
       <img
         src={project.images && project.images.length > 0 ? project.images[0] : "https://placehold.co/800x600?text=No+Image"}
         alt={project.title}
-        className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+        className="w-full h-full object-cover transition duration-500"
       />
-      <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
          {/* Icon changed to indicate view detail rather than play video */}
         <span className="text-white text-lg font-bold">View Details</span>
       </div>
@@ -65,7 +65,7 @@ const ProjectList = ({ onSelectProject }) => {
             modules={[Autoplay]}
             spaceBetween={20}
             slidesPerView={1.2}
-            loop={true}
+            loop={projects.length > 4}
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,

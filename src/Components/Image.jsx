@@ -56,7 +56,7 @@ export default function Image() {
               {/* Hover overlay text (moved lower) */}
               <div
                 className="absolute inset-0 bg-black bg-opacity-40 opacity-0 
-                group-hover:opacity-100 transition-all 
+                group-hover:opacity-60 transition-all 
                 flex justify-center items-end pb-16 text-4xl font-bold text-[var(--accent)]" // ✅ text lower
               >
                 {slide.text}

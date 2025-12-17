@@ -59,7 +59,13 @@ export default function Email() {
       >
         <div className="grid grid-cols-1 md:grid-cols-5 h-full">
           {/* Left Side: Contact Info / CTA */}
-          <div className="md:col-span-2 bg-[var(--accent)] p-8 text-white flex flex-col justify-between relative overflow-hidden">
+          <div 
+            className="md:col-span-2 bg-[var(--accent)] p-8 text-white flex flex-col justify-between relative overflow-hidden bg-cover bg-center"
+            style={{ backgroundImage: "url('/images/discuss_bg.png')" }}
+          >
+             {/* Dark Overlay for readability */}
+             <div className="absolute inset-0 bg-black/70 z-0"></div>
+
              <div className="relative z-10">
                 <h3 className="text-2xl font-bold mb-4">Let's Discuss Your Project</h3>
                 <p className="mb-6 opacity-90">
@@ -68,7 +74,7 @@ export default function Email() {
                 
                 <div className="flex flex-col space-y-4 font-medium opacity-90">
                     <div className="flex items-center space-x-2">
-                        <FiMail /> <span>naziyah@example.com</span>
+                        <FiMail /> <span>naziyahcreedmd@example.com</span>
                     </div>
                 </div>
              </div>
