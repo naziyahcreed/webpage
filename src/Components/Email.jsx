@@ -68,7 +68,7 @@ export default function Email() {
                 
                 <div className="flex flex-col space-y-4 font-medium opacity-90">
                     <div className="flex items-center space-x-2">
-                        <FiMail /> <span>naziyahcreedmd@example.com</span>
+                        <FiMail /> <span>naziyahcreedmd@gmail.com</span>
                     </div>
                 </div>
              </div>
