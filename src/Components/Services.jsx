@@ -24,7 +24,7 @@ export default function Services() {
 
   return (
     <div className="min-h-fit bg-[var(--bg-primary)] px-4 sm:px-6 lg:px-16 py-16">
-      <h2 className="text-4xl font-bold text-center text-[var(--accent)] mb-12">
+      <h2 className="text-4xl font-bold text-center mb-12 golden-text">
 
         Services
       </h2>
@@ -39,9 +39,9 @@ export default function Services() {
             transition={{ delay: index * 0.1, duration: 0.4 }}
             viewport={{ once: false, amount: 0.2 }}
             whileHover={{ scale: 1.05 }}
-            className="bg-[var(--bg-secondary)] text-[var(--text-primary)] rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
+            className="bg-[var(--bg-secondary)] text-[var(--text-primary)] rounded-2xl shadow-lg p-6 golden-border-hover transition-all duration-300"
           >
-            <h3 className="text-2xl font-semibold text-[var(--accent-secondary)] mb-3">
+            <h3 className="text-2xl font-semibold mb-3 golden-text">
               {mission.title}
             </h3>
             <p className="text-[var(--text-primary)] leading-relaxed">{mission.description}</p>
