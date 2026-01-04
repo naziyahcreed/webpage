@@ -22,22 +22,22 @@ export default function Image() {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8 }}
-      className="flex justify-center items-center bg-[var(--bg-primary)]">
+      className="flex justify-center items-center bg-[var(--bg-primary)] px-4">
       <div
         className="flex justify-center items-center w-full h-[700px] bg-cover bg-center 
-        max-sm:w-[400px] max-sm:h-[400px] max-sm:rounded-md max-md:w-full max-md:h-[400px] 
-        max-md:rounded-md max-lg:w-full max-lg:h-[500px] max-lg:rounded-md max-xl:w-full 
-        max-xl:h-[500px] max-xl:rounded-md max-2xl:w-full max-2xl:h-[600px] max-2xl:rounded-md 
-        max-3xl:w-full max-3xl:h-[700px] max-3xl:rounded-md max-4xl:w-full max-4xl:h-[700px] 
-        max-4xl:rounded-md max-5xl:w-full max-5xl:h-[900px] max-5xl:rounded-md max-6xl:w-full 
-        max-6xl:h-[700px] hover:border-2 border-[var(--text-primary)] rounded-md"
+        max-sm:w-full max-sm:h-[400px] max-md:w-full max-md:h-[400px] 
+        max-lg:w-full max-lg:h-[500px] max-xl:w-full 
+        max-xl:h-[500px] max-2xl:w-full max-2xl:h-[600px] 
+        max-3xl:w-full max-3xl:h-[700px] max-4xl:w-full max-4xl:h-[700px] 
+        max-5xl:w-full max-5xl:h-[900px] max-6xl:w-full 
+        max-6xl:h-[700px] golden-border-textured rounded-xl overflow-hidden"
       >
         <Swiper
           modules={[Autoplay]}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           loop
           speed={800}
-          className="w-full h-full rounded-md"
+          className="w-full h-full rounded-xl"
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // ✅ update index on slide change
         >
           {slides.map((slide, index) => (

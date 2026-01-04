@@ -49,6 +49,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 * {
@@ -58,4 +59,75 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Golden Texture Utilities - Refined to match Orange-Yellow palette */
+.golden-line {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    #d97706 0%,
+    #fcd34d 25%,
+    #f9aa33 50%,
+    #fef3c7 75%,
+    #d97706 100%
+  );
+  box-shadow: 0 0 10px rgba(217, 119, 6, 0.3);
+}
+
+.golden-border-textured {
+  border: 2.5px solid transparent;
+  background: 
+    linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+    linear-gradient(45deg, #d97706, #fcd34d, #f9aa33, #fef3c7, #d97706) border-box;
+}
+
+.golden-border-hover:hover {
+  border: 2.5px solid transparent;
+  background: 
+    linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+    linear-gradient(45deg, #d97706, #fcd34d, #f9aa33, #fef3c7, #d97706) border-box;
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(217, 119, 6, 0.2);
+}
+
+.golden-text {
+  background: linear-gradient(to right, #d97706, #f9aa33, #fcd34d);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.golden-bg {
+  background: linear-gradient(135deg, #d97706 0%, #fcd34d 50%, #f9aa33 100%);
+  color: black;
+}
+
+.golden-btn {
+  background: linear-gradient(90deg, #d97706, #f9aa33, #fcd34d);
+  background-size: 200% auto;
+  transition: 0.5s;
+}
+
+.golden-btn:hover {
+  background-position: right center;
+  box-shadow: 0 0 15px rgba(217, 119, 6, 0.4);
+}
+
+.golden-hover-line::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #d97706, #f9aa33, #fcd34d);
+  transition: width 0.3s ease;
+}
+
+.golden-hover-line:hover::after {
+  width: 100%;
 }

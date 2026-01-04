@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function CertificateModal({ certificate, close }) {
-  const downloadImage = () => {
-    const a = document.createElement("a");
-    a.href = certificate.image_url;
-    a.download = certificate.name + ".png";
-    a.click();
-  };
+  const images = certificate.images || [certificate.image_url];
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center p-4 z-50">
@@ -18,16 +18,39 @@ export default function CertificateModal({ certificate, close }) {
       >
         <button
           onClick={close}
-          className="absolute top-3 right-3 text-2xl font-bold text-[var(--text-primary)]"
+          className="absolute top-3 right-3 text-2xl font-bold text-[var(--text-primary)] z-10"
         >
           ✕
         </button>
 
-        <img
-          src={certificate.image_url}
-          alt={certificate.name}
-          className="w-full h-72 object-contain rounded-md "
-        />
+        <div className="w-full h-80 rounded-md overflow-hidden bg-black/20">
+          {images.length > 1 ? (
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              navigation
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 3000 }}
+              loop={true}
+              className="w-full h-full"
+            >
+              {images.map((img, idx) => (
+                <SwiperSlide key={idx}>
+                  <img
+                    src={img}
+                    alt={`${certificate.name} shot ${idx + 1}`}
+                    className="w-full h-full object-contain"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          ) : (
+            <img
+              src={images[0]}
+              alt={certificate.name}
+              className="w-full h-full object-contain"
+            />
+          )}
+        </div>
 
         <h2 className="text-2xl font-bold mt-4">{certificate.name}</h2>
         <p className="text-[var(--text-secondary)] mt-2">{certificate.description}</p>

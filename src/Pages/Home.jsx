@@ -29,10 +29,19 @@ const Home = () => {
         })}
       </script>
       <section id="home"><Title /><Image /></section>
+      <div className="golden-line opacity-80"></div>
       <section id="about"><About /></section>
-      <section id="service"><ContentBox /><OurMission /></section>
+      <div className="golden-line opacity-80"></div>
+      <section id="service">
+        <ContentBox />
+        <div className="golden-line opacity-80"></div>
+        <OurMission />
+      </section>
+      <div className="golden-line opacity-80"></div>
       <section id="certificates"><CertificatesPage /></section>
+      <div className="golden-line opacity-80"></div>
       <section id="projects"><ProjectsPage /></section>
+      <div className="golden-line opacity-80"></div>
       <section id="contact"><Email /></section>
     </div>
   );

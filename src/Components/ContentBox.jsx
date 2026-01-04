@@ -38,7 +38,7 @@ const ContentBox = () => {
 
   return (
     <div className="min-h-fit bg-[var(--bg-primary)] px-4 sm:px-6 lg:px-10 py-10 ">
-      <h1 className="text-3xl font-bold text-center text-[var(--accent)] pb-10 scroll:text-[var(--text-primary)] scroll-smooth">
+      <h1 className="text-4xl font-bold text-center pb-10 scroll:text-[var(--text-primary)] scroll-smooth golden-text">
         Why Choose us?
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto ">
@@ -50,9 +50,9 @@ const ContentBox = () => {
             transition={{ delay: index * 0.1, duration: 0.4 }}
             viewport={{ once: false, amount: 0.2 }}
             whileHover={{ scale: 1.05 }}
-            className=" bg-[var(--bg-secondary)] text-[var(--text-primary)] shadow-md rounded-2xl p-6  transition-all duration-300 hover:shadow-2xl"
+            className=" bg-[var(--bg-secondary)] text-[var(--text-primary)] shadow-md rounded-2xl p-6  transition-all duration-300 hover:shadow-2xl golden-border-hover"
           >
-            <h2 className="text-xl font-semibold text-[var(--accent-secondary)] mb-2">
+            <h2 className="text-xl font-semibold mb-2 golden-text">
               {card.title}
             </h2>
             <p className="text-[var(--text-primary)] leading-relaxed">{card.content}</p>

@@ -14,7 +14,7 @@ import SEO from './SEO';
  * Project Card for the List View
  */
 const ProjectCard = ({ project, onSelect }) => (
-  <div className="flex-shrink-0 w-72 md:w-80 bg-[var(--bg-secondary)] shadow-xl rounded-xl overflow-hidden border border-[var(--bg-primary)] transition duration-300 transform hover:scale-[1.02] hover:shadow-2xl hover:border-[var(--accent)] hover:border-2">
+  <div className="flex-shrink-0 w-72 md:w-80 bg-[var(--bg-secondary)] shadow-xl rounded-xl overflow-hidden golden-border-textured transition duration-300 transform hover:scale-[1.02] hover:shadow-2xl">
     <div className="relative h-40 overflow-hidden group">
       {/* Small placeholder image for the card */}
       <img
@@ -34,7 +34,7 @@ const ProjectCard = ({ project, onSelect }) => (
 
       <button
         onClick={() => onSelect(project)}
-        className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-[var(--accent)] hover:bg-[var(--accent-secondary)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--accent)] transition duration-150 ease-in-out"
+        className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-black golden-btn focus:outline-none transition duration-150 ease-in-out"
       >
         Preview Project
       </button>
@@ -54,7 +54,7 @@ const ProjectList = ({ onSelectProject }) => {
 
   return (
     <div className="pt-4 pb-12">
-      <h2 className="text-3xl sm:text-4xl font-extrabold text-[var(--accent)] mb-6 md:mb-10 leading-tight h-fit">
+      <h2 className="text-3xl sm:text-4xl font-extrabold mb-6 md:mb-10 leading-tight h-fit golden-text">
         Explore Our Projects
       </h2>
 
@@ -115,30 +115,30 @@ const ProjectDetail = ({ project, onBack }) => {
       {/* Back Button */}
       <button
         onClick={onBack}
-        className="inline-flex items-center text-[var(--accent)] hover:text-[var(--accent-secondary)] transition duration-150 mb-8 font-medium"
+        className="group inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-[var(--bg-secondary)] border border-[var(--accent)] text-[var(--accent)] hover:golden-bg hover:text-black transition-all duration-300 shadow-md shadow-[var(--accent)]/10"
       >
-        <ChevronLeft className="w-5 h-5 mr-1" />
-        Back to Project List
+        <ChevronLeft className="w-5 h-5 transition-colors" />
+        <span className="font-bold">Back to Project List</span>
       </button>
 
       {/* Project Heading */}
       <h1 className="text-4xl sm:text-5xl font-extrabold text-[var(--text-primary)] mb-4 md:mb-6 leading-tight">
         {project.title}
       </h1>
-      <p className="text-xl text-[var(--accent)] mb-8">
+      <p className="text-xl mb-8 golden-text">
         Detailed Project Overview
       </p>
 
       {/* Main Content Grid: Responsive 3-column layout (2/3 + 1/3) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10  w-fit h-fit">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10  w-full h-fit">
 
         {/* LEFT SECTION: Gallery & Description (takes 2/3 on desktop) */}
         <div className="md:col-span-2 flex flex-col space-y-8">
 
           {/* 1. Image Gallery */}
-          <div className="bg-[var(--bg-secondary)] p-4 shadow-xl rounded-xl border border-[var(--bg-primary)]">
+          <div className="bg-[var(--bg-secondary)] p-4 shadow-xl rounded-xl golden-border-textured">
             <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">Project Gallery</h2>
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg ring-4 ring-[var(--accent)]/50">
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg ring-4 ring-[#fcd34d]/50">
                {project.images && project.images.length > 0 ? (
                   <Swiper
                     modules={[Navigation, Pagination, Autoplay]}
@@ -167,7 +167,7 @@ const ProjectDetail = ({ project, onBack }) => {
           </div>
 
           {/* 2. Project Description Card */}
-          <div className="bg-[var(--bg-secondary)] p-6 shadow-xl rounded-xl border border-[var(--bg-primary)] h-fit">
+          <div className="bg-[var(--bg-secondary)] p-6 shadow-xl rounded-xl golden-border-textured h-fit">
             <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">Project Description</h2>
             <div 
               className="text-[var(--text-secondary)] leading-relaxed prose prose-invert max-w-none"
@@ -178,16 +178,16 @@ const ProjectDetail = ({ project, onBack }) => {
 
         {/* 3. RIGHT SECTION: Info / Tags (Modified from Final Product Snapshot) */}
         <div className="md:col-span-1">
-          <div className="bg-[var(--bg-secondary)] p-4 shadow-xl rounded-xl border border-[var(--bg-primary)] sticky top-4">
+          <div className="bg-[var(--bg-secondary)] p-4 shadow-xl rounded-xl golden-border-textured sticky top-4">
             <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">Project Details</h2>
              {/* Use the first image as a thumbnail if needed, or remove. 
                  Since we have a gallery, maybe just show tags here. */}
             
             <div className="mb-6">
-                 <h3 className="text-lg font-semibold text-[var(--accent-secondary)] mb-2">Technologie Stack</h3>
+                 <h3 className="text-lg font-semibold mb-2 golden-text">Technologie Stack</h3>
                  <div className="flex flex-wrap gap-2">
                     {project.tags && project.tags.map((tag, i) => (
-                        <span key={i} className="px-3 py-1 bg-[var(--bg-primary)] text-[var(--text-primary)] rounded-full text-sm border border-[var(--accent)]">
+                        <span key={i} className="px-3 py-1 bg-[var(--bg-secondary)] rounded-full text-sm golden-border-textured golden-text font-bold">
                             {tag}
                         </span>
                     ))}
@@ -201,6 +201,17 @@ const ProjectDetail = ({ project, onBack }) => {
         </div>
 
       </div> {/* End of Main Grid */}
+
+      {/* Bottom Back Button */}
+      <div className="mt-12 pb-8 flex justify-center">
+        <button
+          onClick={onBack}
+          className="inline-flex items-center gap-3 px-8 py-3 rounded-full golden-btn text-black font-bold shadow-xl hover:scale-105 transition-all duration-300"
+        >
+          <ChevronLeft className="w-6 h-6" />
+          Explore More Projects
+        </button>
+      </div>
     </div>
   );
 };

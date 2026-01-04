@@ -55,82 +55,80 @@ export default function Email() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="max-w-4xl mx-auto bg-[var(--bg-secondary)]/80 backdrop-blur-lg rounded-2xl shadow-2xl overflow-hidden border border-[var(--bg-primary)] relative z-10"
+        className="max-w-4xl mx-auto bg-[var(--bg-secondary)]/80 backdrop-blur-lg rounded-2xl shadow-2xl overflow-hidden golden-border-textured relative z-10"
       >
         <div className="grid grid-cols-1 md:grid-cols-5 h-full">
           {/* Left Side: Contact Info / CTA */}
-          <div className="md:col-span-2 bg-[var(--accent)] p-8 text-white flex flex-col justify-between relative overflow-hidden">
+          <div className="md:col-span-2 golden-bg p-8 flex flex-col justify-between relative overflow-hidden">
              <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-4">Let's Discuss Your Project</h3>
-                <p className="mb-6 opacity-90">
+                <h3 className="text-2xl font-bold mb-4 text-black">Let's Discuss Your Project</h3>
+                <p className="mb-6 text-black">
                   Ready to bring your ideas to life? Fill out the form and I'll get back to you within 24 hours.
                 </p>
                 
-                <div className="flex flex-col space-y-4 font-medium opacity-90">
+                <div className="flex flex-col space-y-4 font-medium text-black">
                     <div className="flex items-center space-x-2">
                         <FiMail /> <span>naziyahcreedmd@gmail.com</span>
                     </div>
                 </div>
              </div>
-             {/* Abstract circles */}
-             <div className="absolute bottom-[-10%] right-[-10%] w-32 h-32 bg-white opacity-20 rounded-full blur-xl"></div>
           </div>
 
           {/* Right Side: Form */}
           <div className="md:col-span-3 p-8 md:p-10">
-            <h2 className="text-3xl font-bold text-[var(--accent)] mb-2">Get in Touch</h2>
+            <h2 className="text-3xl font-bold mb-2 golden-text">Get in Touch</h2>
             <p className="text-[var(--text-secondary)] mb-8 text-sm">Fill in the fields below to start a conversation.</p>
             
             <form onSubmit={onSubmit} className="space-y-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="flex flex-col space-y-2">
-                  <label htmlFor="name" className="text-sm font-semibold text-[var(--text-primary)] flex items-center"><FiUser className="mr-2 text-[var(--accent)]"/> Name</label>
+                  <label htmlFor="name" className="text-sm font-semibold flex items-center"><FiUser className="mr-2 text-[#f9aa33]"/> <span className="golden-text">Name</span></label>
                   <input 
                     type="text" 
                     name="name" 
                     required 
                     placeholder="Enter Name" 
-                    className="px-4 py-3 rounded-lg border border-[var(--text-secondary)]/30 bg-[var(--bg-primary)]/50 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)] transition-all w-full" 
+                    className="px-4 py-3 rounded-lg border-none golden-border-textured bg-[var(--bg-primary)]/50 text-[var(--text-primary)] focus:outline-none transition-all w-full h-auto" 
                   />
                 </div>
                 <div className="flex flex-col space-y-2">
-                   <label htmlFor="phone" className="text-sm font-semibold text-[var(--text-primary)] flex items-center"><FiPhone className="mr-2 text-[var(--accent)]"/> Phone</label>
+                   <label htmlFor="phone" className="text-sm font-semibold flex items-center"><FiPhone className="mr-2 text-[#f9aa33]"/> <span className="golden-text">Phone</span></label>
                    <input 
                     type="tel" 
                     name="phone" 
                     value={phone}
                     onChange={handlePhoneChange}
                     required 
-                    placeholder="+91 98765 43210" 
-                    className="px-4 py-3 rounded-lg border border-[var(--text-secondary)]/30 bg-[var(--bg-primary)]/50 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)] transition-all w-full" 
+                    placeholder="+91 Phone No" 
+                    className="px-4 py-3 rounded-lg border-none golden-border-textured bg-[var(--bg-primary)]/50 text-[var(--text-primary)] focus:outline-none transition-all w-full h-auto" 
                   />
                 </div>
               </div>
 
               <div className="flex flex-col space-y-2">
-                <label htmlFor="email" className="text-sm font-semibold text-[var(--text-primary)] flex items-center"><FiMail className="mr-2 text-[var(--accent)]"/> Email Address</label>
+                <label htmlFor="email" className="text-sm font-semibold flex items-center"><FiMail className="mr-2 text-[#f9aa33]"/> <span className="golden-text">Email Address</span></label>
                 <input 
                   type="email" 
                   name="email" 
                   required 
                   placeholder="trustme@example.com" 
-                  className="px-4 py-3 rounded-lg border border-[var(--text-secondary)]/30 bg-[var(--bg-primary)]/50 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)] transition-all w-full" 
+                  className="px-4 py-3 rounded-lg border-none golden-border-textured bg-[var(--bg-primary)]/50 text-[var(--text-primary)] focus:outline-none transition-all w-full h-auto" 
                 />
               </div>
 
               <div className="flex flex-col space-y-2">
-                <label htmlFor="message" className="text-sm font-semibold text-[var(--text-primary)] flex items-center"><FiMessageCircle className="mr-2 text-[var(--accent)]"/> Your Message</label>
+                <label htmlFor="message" className="text-sm font-semibold flex items-center"><FiMessageCircle className="mr-2 text-[#f9aa33]"/> <span className="golden-text">Your Message</span></label>
                 <textarea 
                   name="message" 
                   required 
                   placeholder="Tell me about your project needs..." 
-                  className="px-4 py-3 rounded-lg border border-[var(--text-secondary)]/30 bg-[var(--bg-primary)]/50 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)] transition-all w-full h-32 resize-none shadow-inner"
+                  className="px-4 py-3 rounded-lg border-none golden-border-textured bg-[var(--bg-primary)]/50 text-[var(--text-primary)] focus:outline-none transition-all w-full h-32 resize-none shadow-inner"
                 ></textarea>
               </div>
 
               <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-secondary)] text-white font-bold py-3.5 px-6 rounded-lg shadow-lg hover:shadow-xl hover:scale-[1.01] transition-all duration-200 transform active:scale-95 flex items-center justify-center space-x-2"
+                className="w-full golden-btn text-black font-bold py-3.5 px-6 rounded-lg shadow-lg hover:shadow-xl hover:scale-[1.01] transition-all duration-200 transform active:scale-95 flex items-center justify-center space-x-2 h-14"
               >
                   <FiMessageCircle className="w-5 h-5"/>
                   <span>Send Message</span>
@@ -149,6 +147,7 @@ export default function Email() {
           </div>
         </div>
       </motion.div>
+      <div className="golden-line opacity-80 mt-16"></div>
     </div>
   );
 }
