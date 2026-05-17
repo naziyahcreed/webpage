@@ -85,22 +85,23 @@ export default function CertificatesPage() {
           filtered.map((cert, index) => (
             <motion.div
               key={cert.id}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ delay: index * 0.05, duration: 0.2 }}
-              viewport={{ once: false, amount: 0.2 }}
-              className="bg-[var(--bg-secondary)] shadow-md rounded-lg p-4 cursor-pointer golden-border-textured hover:shadow-2xl transition-all duration-200"
+              transition={{ delay: index * 0.05, duration: 0.4, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="running-border-container running-border-blue shadow-md cursor-pointer transition-all duration-300 ease-out hover:scale-[1.03] hover:-translate-y-1 hover:shadow-2xl"
               onClick={() => setSelectedCertificate(cert)}
             >
-              <img
-                src={cert.image_url || "https://placehold.co/600x400?text=No+Certificate"}
-                alt={cert.name}
-                className="h-48 w-full object-cover rounded-md"
-              />
+              <div className="running-border-content bg-gradient-to-r from-[#A0EBCF] to-[#014387] p-4 flex flex-col h-full w-full">
+                <img
+                  src={cert.image_url || "https://placehold.co/600x400?text=No+Certificate"}
+                  alt={cert.name}
+                  className="h-48 w-full object-cover rounded-md"
+                />
 
-              <h2 className="font-bold text-xl mt-3 text-[var(--text-primary)]">{cert.name}</h2>
-              <p className="golden-text font-bold">{cert.date}</p>
+                <h2 className="font-bold text-xl mt-3">{cert.name}</h2>
+                <p className="text-black font-bold">{cert.date}</p>
+              </div>
             </motion.div>
           ))
         ) : (

@@ -14,30 +14,32 @@ import SEO from './SEO';
  * Project Card for the List View
  */
 const ProjectCard = ({ project, onSelect }) => (
-  <div className="flex-shrink-0 w-72 md:w-80 bg-[var(--bg-secondary)] shadow-xl rounded-xl overflow-hidden golden-border-textured transition duration-300 transform hover:scale-[1.02] hover:shadow-2xl">
-    <div className="relative h-40 overflow-hidden group">
-      {/* Small placeholder image for the card */}
-      <img
-        src={project.images && project.images.length > 0 ? project.images[0] : "https://placehold.co/800x600?text=No+Image"}
-        alt={project.title}
-        className="w-full h-full object-cover transition duration-500"
-      />
-      <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-         {/* Icon changed to indicate view detail rather than play video */}
-        <span className="text-white text-lg font-bold">View Details</span>
+  <div className="group running-border-container running-border-blue w-full h-full flex flex-col shadow-xl transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:shadow-2xl">
+    <div className="running-border-content bg-[var(--bg-secondary)] flex flex-col h-full w-full overflow-hidden">
+      <div className="relative h-40 overflow-hidden ">
+        {/* Small placeholder image for the card */}
+        <img
+          src={project.images && project.images.length > 0 ? project.images[0] : "https://placehold.co/800x600?text=No+Image"}
+          alt={project.title}
+          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+           {/* Icon changed to indicate view detail rather than play video */}
+          <span className="text-white text-sm font-bold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 ease-out">View Details</span>
+        </div>
       </div>
-    </div>
 
-    <div className="p-5">
-      <h3 className="text-xl font-bold text-[var(--text-primary)] truncate mb-2">{project.title}</h3>
-      <p className="text-[var(--text-secondary)] text-sm mb-4 line-clamp-2">{project.short_description}</p>
+      <div className="p-5 flex flex-col flex-grow">
+        <h3 className="text-xl font-bold text-[var(--text-primary)] truncate mb-2">{project.title}</h3>
+        <p className="text-[var(--text-secondary)] text-sm mb-4 line-clamp-2 flex-grow">{project.short_description}</p>
 
-      <button
-        onClick={() => onSelect(project)}
-        className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-black golden-btn focus:outline-none transition duration-150 ease-in-out"
-      >
-        Preview Project
-      </button>
+        <button
+          onClick={() => onSelect(project)}
+          className="w-full inline-flex items-center justify-center px-4 py-2 mt-auto border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-[var(--accent)] hover:bg-[var(--accent-secondary)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--accent)] transition duration-150 ease-in-out"
+        >
+          Preview Project
+        </button>
+      </div>
     </div>
   </div>
 );
@@ -53,13 +55,13 @@ const ProjectList = ({ onSelectProject }) => {
   }, []);
 
   return (
-    <div className="pt-4 pb-12">
-      <h2 className="text-3xl sm:text-4xl font-extrabold mb-6 md:mb-10 leading-tight h-fit golden-text">
+    <div className="pt-4 pb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 className="text-3xl sm:text-4xl font-extrabold text-[var(--accent)] mb-6 md:mb-10 leading-tight h-fit text-center">
         Explore Our Projects
       </h2>
 
       {/* Horizontal Scroll auto-play Container */}
-      <div className="p-4 -m-4">
+      <div className="py-4">
         {projects.length > 0 ? (
           <Swiper
             modules={[Autoplay]}
@@ -71,11 +73,21 @@ const ProjectList = ({ onSelectProject }) => {
               disableOnInteraction: false,
             }}
             breakpoints={{
+              320: {
+                slidesPerView: 1.2,
+                spaceBetween: 15,
+              },
               640: {
-                slidesPerView: 2.2,
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2.5,
+                spaceBetween: 25,
               },
               1024: {
-                slidesPerView: 3.5,
+                slidesPerView: 3,
+                spaceBetween: 30,
               },
             }}
             className="w-full"
@@ -83,9 +95,10 @@ const ProjectList = ({ onSelectProject }) => {
             {projects.map((project, index) => (
               <SwiperSlide key={project.id}>
                 <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05, duration: 0.4, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.2 }}
                 >
                   <ProjectCard project={project} onSelect={onSelectProject} />
                 </motion.div>
