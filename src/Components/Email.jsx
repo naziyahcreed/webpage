@@ -147,7 +147,6 @@ export default function Email() {
           </div>
         </div>
       </motion.div>
-      <div className="golden-line opacity-80 mt-16"></div>
     </div>
   );
 }

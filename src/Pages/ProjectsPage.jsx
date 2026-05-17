@@ -7,8 +7,7 @@ const ProjectsPage = () => {
 
   return (
     <div className="min-h-fit bg-[var(--bg-primary)] p-4 md:p-8 font-inter relative">
-      <div className="absolute top-0 left-0 w-full h-[4px] golden-line"></div>
-      <div className="absolute bottom-0 left-0 w-full h-[4px] golden-line"></div>
+
       
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');

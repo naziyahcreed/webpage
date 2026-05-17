@@ -135,33 +135,45 @@ const Navbar = ({ theme, setTheme }) => {
         <p className="sm:hidden text-xs uppercase tracking-[4px] text-[var(--accent)] mb-2 font-bold opacity-70">Navigation</p>
 
         <a href="/#home" onClick={() => setSidebar(false)}
-          className='flex items-center gap-2 sm:hover:border-b sm:hover:border-2 sm:hover:border-[var(--text-primary)] sm:hover:text-[var(--accent)] text-base sm:text-base font-semibold tracking-wide text-white hover:text-[var(--accent)] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[var(--accent)] max-sm:pl-3 transition-all duration-200'>
-          <MdHome className="text-2xl" /> Home
+          className='group relative flex items-center gap-2 text-base font-semibold tracking-wide text-[var(--text-primary)] max-sm:text-white hover:text-[var(--accent)] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[var(--accent)] max-sm:pl-3 transition-colors duration-300'>
+          <MdHome className="text-2xl group-hover:scale-110 transition-transform duration-300" /> 
+          <span>Home</span>
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--accent)] transition-all duration-300 group-hover:w-full shadow-[0_0_8px_var(--accent)] max-sm:hidden"></span>
         </a>
 
         <a href="/#about" onClick={() => setSidebar(false)}
-          className='flex items-center gap-2 sm:hover:border-b sm:hover:border-2 sm:hover:border-[var(--text-primary)] sm:hover:text-[var(--accent)] text-base sm:text-base font-semibold tracking-wide text-white hover:text-[var(--accent)] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[var(--accent)] max-sm:pl-3 transition-all duration-200'>
-          <MdInfoOutline className="text-2xl" /> About
+          className='group relative flex items-center gap-2 text-base font-semibold tracking-wide text-[var(--text-primary)] max-sm:text-white hover:text-[var(--accent)] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[var(--accent)] max-sm:pl-3 transition-colors duration-300'>
+          <MdInfoOutline className="text-2xl group-hover:scale-110 transition-transform duration-300" /> 
+          <span>About</span>
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--accent)] transition-all duration-300 group-hover:w-full shadow-[0_0_8px_var(--accent)] max-sm:hidden"></span>
         </a>
 
         <a href="/#service" onClick={() => setSidebar(false)}
-          className='flex items-center gap-2 sm:hover:border-b sm:hover:border-2 sm:hover:border-[var(--text-primary)] sm:hover:text-[var(--accent)] text-base sm:text-base font-semibold tracking-wide text-white hover:text-[var(--accent)] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[var(--accent)] max-sm:pl-3 transition-all duration-200'>
-          <MdMiscellaneousServices className="text-2xl" /> Services
+          className='group relative flex items-center gap-2 text-base font-semibold tracking-wide text-[var(--text-primary)] max-sm:text-white hover:text-[var(--accent)] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[var(--accent)] max-sm:pl-3 transition-colors duration-300'>
+          <MdMiscellaneousServices className="text-2xl group-hover:scale-110 transition-transform duration-300" /> 
+          <span>Services</span>
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--accent)] transition-all duration-300 group-hover:w-full shadow-[0_0_8px_var(--accent)] max-sm:hidden"></span>
         </a>
 
         <a href="/#projects" onClick={() => setSidebar(false)}
-          className='flex items-center gap-2 sm:hover:border-b sm:hover:border-2 sm:hover:border-[var(--text-primary)] sm:hover:text-[var(--accent)] text-base sm:text-base font-semibold tracking-wide text-white hover:text-[var(--accent)] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[var(--accent)] max-sm:pl-3 transition-all duration-200'>
-          <MdFolder className="text-2xl" /> Projects
+          className='group relative flex items-center gap-2 text-base font-semibold tracking-wide text-[var(--text-primary)] max-sm:text-white hover:text-[var(--accent)] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[var(--accent)] max-sm:pl-3 transition-colors duration-300'>
+          <MdFolder className="text-2xl group-hover:scale-110 transition-transform duration-300" /> 
+          <span>Projects</span>
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--accent)] transition-all duration-300 group-hover:w-full shadow-[0_0_8px_var(--accent)] max-sm:hidden"></span>
         </a>
 
         <a href="/#certificates" onClick={() => setSidebar(false)}
-          className='flex items-center gap-2 sm:hover:border-b sm:hover:border-2 sm:hover:border-[var(--text-primary)] sm:hover:text-[var(--accent)] text-base sm:text-base font-semibold tracking-wide text-white hover:text-[var(--accent)] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[var(--accent)] max-sm:pl-3 transition-all duration-200'>
-          <MdCardMembership className="text-2xl" /> Certificates
+          className='group relative flex items-center gap-2 text-base font-semibold tracking-wide text-[var(--text-primary)] max-sm:text-white hover:text-[var(--accent)] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[var(--accent)] max-sm:pl-3 transition-colors duration-300'>
+          <MdCardMembership className="text-2xl group-hover:scale-110 transition-transform duration-300" /> 
+          <span>Certificates</span>
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--accent)] transition-all duration-300 group-hover:w-full shadow-[0_0_8px_var(--accent)] max-sm:hidden"></span>
         </a>
 
         <a href="/#contact" onClick={() => setSidebar(false)}
-          className='flex items-center gap-2 sm:hover:border-b sm:hover:border-2 sm:hover:border-[var(--text-primary)] sm:hover:text-[var(--accent)] text-base sm:text-base font-semibold tracking-wide text-white hover:text-[var(--accent)] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[var(--accent)] max-sm:pl-3 transition-all duration-200'>
-          <MdContactMail className="text-2xl" /> Contact
+          className='group relative flex items-center gap-2 text-base font-semibold tracking-wide text-[var(--text-primary)] max-sm:text-white hover:text-[var(--accent)] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[var(--accent)] max-sm:pl-3 transition-colors duration-300'>
+          <MdContactMail className="text-2xl group-hover:scale-110 transition-transform duration-300" /> 
+          <span>Contact</span>
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--accent)] transition-all duration-300 group-hover:w-full shadow-[0_0_8px_var(--accent)] max-sm:hidden"></span>
         </a>
 
         <div className="sm:hidden w-10 border-t border-[var(--accent)] opacity-30 my-1"></div>
