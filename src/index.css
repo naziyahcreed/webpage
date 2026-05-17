@@ -6,7 +6,7 @@
     
 }
 *{
-    font-family: serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 500;
 }
 
@@ -53,7 +53,7 @@ body {
 }
 
 * {
-  font-family: serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 500;
 }
 
@@ -61,4 +61,131 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes golden-glow {
+  0% {
+    box-shadow: 0 0 15px 2px var(--accent);
+  }
+  50% {
+    box-shadow: 0 0 40px 10px #00f3ff;
+  }
+  100% {
+    box-shadow: 0 0 15px 2px var(--accent);
+  }
+}
 
+.animate-golden-glow {
+  animation: golden-glow 3s infinite ease-in-out;
+}
+
+@keyframes cyber-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px 2px #00f3ff;
+  }
+  50% {
+    box-shadow: 0 0 35px 8px #00f3ff;
+  }
+}
+
+.animate-cyber-glow {
+  animation: cyber-glow 3s infinite ease-in-out;
+}
+
+@keyframes slide-line {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.animate-slide-line {
+  animation: slide-line 3s ease-in-out infinite;
+}
+
+@keyframes flow-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-flow-bg {
+  animation: flow-bg 6s ease-in-out infinite;
+}
+
+@keyframes border-spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* Reusable Running Border Container */
+.running-border-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  padding: 2px;
+  background: transparent;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.running-border-container::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  animation: border-spin 6s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  pointer-events: none;
+}
+
+/* Add dynamic variation to the running borders so they don't look perfectly synced */
+.running-border-container:nth-child(odd)::before {
+  animation-delay: -2s;
+  animation-duration: 5s;
+}
+
+.running-border-container:nth-child(even)::before {
+  animation-delay: -4s;
+  animation-direction: reverse;
+  animation-duration: 7s;
+}
+
+.running-border-container:nth-child(3n)::before {
+  animation-delay: -1s;
+  animation-duration: 6.5s;
+}
+
+.running-border-container:nth-child(4n)::before {
+  animation-delay: -3.5s;
+  animation-direction: reverse;
+  animation-duration: 5.5s;
+}
+
+/* Blue Variant */
+.running-border-blue::before {
+  background: conic-gradient(from 0deg, transparent 0%, transparent 80%, #00f3ff 90%, transparent 100%);
+}
+
+/* Gold Variant */
+.running-border-gold::before {
+  background: conic-gradient(from 0deg, transparent 0%, transparent 80%, var(--accent) 90%, transparent 100%);
+}
+
+.running-border-container:hover::before {
+  opacity: 1;
+}
+
+.running-border-content {
+  position: relative;
+  z-index: 10;
+  border-radius: 14px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Mobile View Rules: Constantly active soft sweep, since touch hover doesn't exist */
+@media (max-width: 768px) {
+  .running-border-container::before {
+    opacity: 0.6;
+    animation-duration: 8s; /* slightly slower on mobile for subtlety */
+  }
+}

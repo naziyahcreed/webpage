@@ -24,20 +24,24 @@ export default function Image() {
       transition={{ duration: 0.8 }}
       className="flex justify-center items-center bg-[var(--bg-primary)]">
       <div
-        className="flex justify-center items-center w-full h-[700px] bg-cover bg-center 
-        max-sm:w-[400px] max-sm:h-[400px] max-sm:rounded-md max-md:w-full max-md:h-[400px] 
-        max-md:rounded-md max-lg:w-full max-lg:h-[500px] max-lg:rounded-md max-xl:w-full 
-        max-xl:h-[500px] max-xl:rounded-md max-2xl:w-full max-2xl:h-[600px] max-2xl:rounded-md 
-        max-3xl:w-full max-3xl:h-[700px] max-3xl:rounded-md max-4xl:w-full max-4xl:h-[700px] 
-        max-4xl:rounded-md max-5xl:w-full max-5xl:h-[900px] max-5xl:rounded-md max-6xl:w-full 
-        max-6xl:h-[700px] hover:border-2 border-[var(--text-primary)] rounded-md"
+        className="relative flex justify-center items-center w-full h-[700px] 
+        max-sm:w-[400px] max-sm:h-[400px] max-md:w-full max-md:h-[400px] 
+        max-lg:w-full max-lg:h-[500px] max-xl:w-full 
+        max-xl:h-[500px] max-2xl:w-full max-2xl:h-[600px] 
+        max-3xl:w-full max-3xl:h-[700px] max-4xl:w-full max-4xl:h-[700px] 
+        max-6xl:h-[700px] rounded-[10px] overflow-hidden p-[2px] transition-shadow duration-500 hover:shadow-[0_0_30px_5px_var(--accent)]"
       >
-        <Swiper
-          modules={[Autoplay]}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          loop
-          speed={800}
-          className="w-full h-full rounded-md"
+        {/* Animated Running Border Background (Sharp, no glow, golden only) */}
+        <div className="absolute w-[200vw] h-[200vw] animate-[spin_5s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,transparent_50%,var(--accent)_70%,var(--accent)_100%)]"></div>
+
+        {/* Inner container to hold the Swiper and hide the center of the gradient */}
+        <div className="relative w-full h-full rounded-md overflow-hidden z-10 bg-[var(--bg-primary)]">
+          <Swiper
+            modules={[Autoplay]}
+            autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: false }}
+            loop
+            speed={800}
+            className="w-full h-full"
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // ✅ update index on slide change
         >
           {slides.map((slide, index) => (
@@ -53,17 +57,20 @@ export default function Image() {
                 transition={{ duration: 3, ease: "linear" }} // ✅ 3 sec zoom until next slide
               />
 
-              {/* Hover overlay text (moved lower) */}
+              {/* Hover overlay text (smooth fade and slide up) */}
               <div
-                className="absolute inset-0 bg-black bg-opacity-40 opacity-0 
-                group-hover:opacity-100 transition-all 
-                flex justify-center items-end pb-16 text-4xl font-bold text-[var(--accent)]" // ✅ text lower
+                className="absolute inset-0 bg-black/40 opacity-0 
+                group-hover:opacity-100 transition-all duration-300 ease-out
+                flex justify-center items-end pb-10 group-hover:pb-16 text-4xl font-bold text-[var(--accent)] backdrop-blur-[2px]"
               >
-                {slide.text}
+                <span className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                  {slide.text}
+                </span>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+        </div>
       </div>
     </motion.div>
   );

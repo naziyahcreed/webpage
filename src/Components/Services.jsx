@@ -37,14 +37,17 @@ export default function Services() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1, duration: 0.4 }}
-            viewport={{ once: false, amount: 0.2 }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-[var(--bg-secondary)] text-[var(--text-primary)] rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
+            viewport={{ once: true, amount: 0.2 }}
+            className="running-border-container running-border-blue shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 ease-out cursor-pointer"
           >
-            <h3 className="text-2xl font-semibold text-[var(--accent-secondary)] mb-3">
-              {mission.title}
-            </h3>
-            <p className="text-[var(--text-primary)] leading-relaxed">{mission.description}</p>
+            <div className="running-border-content bg-[var(--bg-secondary)] text-[var(--text-primary)] p-6 h-full flex flex-col justify-between">
+              <div>
+                <h3 className="text-2xl font-semibold text-[var(--accent-secondary)] mb-3">
+                  {mission.title}
+                </h3>
+                <p className="text-[var(--text-primary)] leading-relaxed">{mission.description}</p>
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>

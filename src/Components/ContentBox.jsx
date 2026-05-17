@@ -49,13 +49,14 @@ const ContentBox = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: index * 0.1, duration: 0.4 }}
             viewport={{ once: false, amount: 0.2 }}
-            whileHover={{ scale: 1.05 }}
-            className=" bg-[var(--bg-secondary)] text-[var(--text-primary)] shadow-md rounded-2xl p-6  transition-all duration-300 hover:shadow-2xl"
+            className="running-border-container running-border-blue shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 cursor-default"
           >
-            <h2 className="text-xl font-semibold text-[var(--accent-secondary)] mb-2">
-              {card.title}
-            </h2>
-            <p className="text-[var(--text-primary)] leading-relaxed">{card.content}</p>
+            <div className="running-border-content bg-[var(--bg-secondary)] text-[var(--text-primary)] p-6 h-full flex flex-col">
+              <h2 className="text-xl font-semibold text-[var(--accent-secondary)] mb-2">
+                {card.title}
+              </h2>
+              <p className="text-[var(--text-primary)] leading-relaxed">{card.content}</p>
+            </div>
           </motion.div>
         ))}
       </div>

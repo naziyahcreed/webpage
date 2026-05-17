@@ -9,9 +9,27 @@ import ProjectsPage from './ProjectsPage';
 import SEO from '../Components/SEO';
 
 
+const RunningBorderSection = ({ id, children }) => (
+  <section id={id} className="relative w-11/12 max-w-[95%] mx-auto rounded-[15px] overflow-hidden p-[2px] my-16 shadow-lg transition-shadow duration-500 hover:shadow-[0_0_30px_5px_rgba(0,243,255,0.2)]">
+    {/* Left-to-Right scanning border effect */}
+    <div className="absolute top-0 bottom-0 w-[50%] animate-slide-line bg-gradient-to-r from-transparent via-[#00f3ff] to-transparent z-0 opacity-100"></div>
+
+    {/* Inner container */}
+    <div className="relative w-full h-full rounded-[13px] z-10 bg-[var(--bg-primary)] overflow-hidden">
+      {children}
+    </div>
+  </section>
+);
+
+const SectionDivider = () => (
+  <div className="relative w-11/12 max-w-5xl mx-auto h-[2px] bg-[var(--bg-secondary)] my-12 overflow-hidden rounded-full shadow-[0_0_10px_rgba(0,243,255,0.2)]">
+    <div className="absolute top-0 h-full w-full bg-gradient-to-r from-transparent via-[#00f3ff] to-transparent animate-slide-line opacity-80"></div>
+  </div>
+);
+
 const Home = () => {
   return (
-    <div>
+    <div className="pb-10">
       <SEO />
       <script type="application/ld+json">
         {JSON.stringify({
@@ -29,11 +47,36 @@ const Home = () => {
         })}
       </script>
       <section id="home"><Title /><Image /></section>
-      <section id="about"><About /></section>
-      <section id="service"><ContentBox /><OurMission /></section>
-      <section id="certificates"><CertificatesPage /></section>
-      <section id="projects"><ProjectsPage /></section>
-      <section id="contact"><Email /></section>
+
+      <SectionDivider />
+      <RunningBorderSection id="about">
+        <About />
+      </RunningBorderSection>
+
+      <SectionDivider />
+      <RunningBorderSection id="service">
+        <ContentBox />
+      </RunningBorderSection>
+
+      <SectionDivider />
+      <RunningBorderSection id="why-choose">
+        <OurMission />
+      </RunningBorderSection>
+
+      <SectionDivider />
+      <RunningBorderSection id="certificates">
+        <CertificatesPage />
+      </RunningBorderSection>
+
+      <SectionDivider />
+      <RunningBorderSection id="projects">
+        <ProjectsPage />
+      </RunningBorderSection>
+
+      <SectionDivider />
+      <RunningBorderSection id="contact">
+        <Email />
+      </RunningBorderSection>
     </div>
   );
 };

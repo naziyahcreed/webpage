@@ -9,12 +9,21 @@ export default function CertificateModal({ certificate, close }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center p-4 z-50">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center p-4 z-50 backdrop-blur-sm" 
+      onClick={close}
+    >
       <motion.div
-        initial={{ scale: 0.6, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.3 }}
-        className="bg-[var(--bg-secondary)] text-[var(--text-primary)] rounded-lg max-w-2xl w-full p-6 relative"
+        initial={{ scale: 0.95, opacity: 0, y: 10 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.95, opacity: 0, y: 10 }}
+        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+        onClick={(e) => e.stopPropagation()}
+        className="bg-[var(--bg-secondary)] text-[var(--text-primary)] rounded-lg max-w-2xl w-full p-6 relative max-h-[90vh] overflow-y-auto"
       >
         <button
           onClick={close}
@@ -41,6 +50,6 @@ export default function CertificateModal({ certificate, close }) {
           Back
         </button>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

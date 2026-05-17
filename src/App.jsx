@@ -5,7 +5,7 @@ import Footer from "./Components/Footer";
 import HomePage from "./Pages/Home";
 
 function App() {
-  const [theme, setTheme] = useState('theme-default');
+  const [theme, setTheme] = useState('theme-black');
 
   useEffect(() => {
     // Remove all theme classes first
