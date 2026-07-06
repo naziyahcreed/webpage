@@ -1,9 +1,31 @@
 import logo from '/images/logo.png'
 import { GiCancel } from "react-icons/gi";
 import { IoMenuSharp } from "react-icons/io5";
-import { MdHome, MdInfoOutline, MdMiscellaneousServices, MdFolder, MdCardMembership, MdContactMail } from "react-icons/md";
-import { useState, useEffect, useRef } from 'react';
+import { MdHome, MdInfoOutline, MdMiscellaneousServices, MdFolder, MdCardMembership, MdContactMail, MdAgriculture } from "react-icons/md";
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { motion } from 'framer-motion';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { useTexture } from '@react-three/drei';
+
+const Globe3D = () => {
+  const meshRef = useRef();
+  // Using a realistic public earth texture with proper CORS support
+  const colorMap = useTexture('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg');
+
+  useFrame((state) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y = state.clock.elapsedTime * 0.3;
+      meshRef.current.rotation.x = 0.2;
+    }
+  });
+  return (
+    <mesh ref={meshRef} scale={1.8}>
+      <sphereGeometry args={[1, 64, 64]} />
+      <meshStandardMaterial map={colorMap} roughness={0.6} metalness={0.1} />
+    </mesh>
+  );
+};
+
 
 /* Removes white background from PNG using Canvas */
 const TransparentLogo = ({ src, className, threshold = 230 }) => {
@@ -162,6 +184,13 @@ const Navbar = ({ theme, setTheme }) => {
           <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--accent)] transition-all duration-300 group-hover:w-full shadow-[0_0_8px_var(--accent)] max-sm:hidden"></span>
         </a>
 
+        <a href="/agrotech" onClick={() => setSidebar(false)}
+          className='group relative flex items-center gap-2 text-base font-semibold tracking-wide text-[#00C853] hover:text-[#00E676] max-sm:text-white max-sm:hover:text-[#00C853] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[#00C853] max-sm:pl-3 transition-colors duration-300'>
+          <MdAgriculture className="text-2xl group-hover:scale-110 transition-transform duration-300" /> 
+          <span>Agrotech</span>
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#00C853] transition-all duration-300 group-hover:w-full shadow-[0_0_8px_#00C853] max-sm:hidden"></span>
+        </a>
+
         <a href="/#certificates" onClick={() => setSidebar(false)}
           className='group relative flex items-center gap-2 text-base font-semibold tracking-wide text-[var(--text-primary)] max-sm:text-white hover:text-[var(--accent)] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[var(--accent)] max-sm:pl-3 transition-colors duration-300'>
           <MdCardMembership className="text-2xl group-hover:scale-110 transition-transform duration-300" /> 
@@ -178,8 +207,20 @@ const Navbar = ({ theme, setTheme }) => {
 
         <div className="sm:hidden w-10 border-t border-[var(--accent)] opacity-30 my-1"></div>
 
-        {/* Theme Switcher - Inline on mobile, dropdown on desktop */}
-        <div className="relative">
+        <div className="flex items-center gap-2 lg:gap-4">
+          {/* Desktop 3D Globe */}
+          <div className="hidden sm:flex w-10 h-10 lg:w-12 lg:h-12 items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+            <Canvas camera={{ position: [0, 0, 4] }}>
+              <ambientLight intensity={1.5} />
+              <pointLight position={[10, 10, 10]} intensity={2} color="#ffffff" />
+              <Suspense fallback={null}>
+                <Globe3D />
+              </Suspense>
+            </Canvas>
+          </div>
+
+          {/* Theme Switcher - Inline on mobile, dropdown on desktop */}
+          <div className="relative">
           {/* Desktop: dropdown button */}
           <button
             onClick={() => setThemeDropdownOpen(!themeDropdownOpen)}
@@ -227,6 +268,7 @@ const Navbar = ({ theme, setTheme }) => {
               </button>
             </div>
           </div>
+        </div>
         </div>
       </div>
 
