@@ -187,7 +187,7 @@ const Navbar = ({ theme, setTheme }) => {
         <a href="/agrotech" onClick={() => setSidebar(false)}
           className='group relative flex items-center gap-2 text-base font-semibold tracking-wide text-[#00C853] hover:text-[#00E676] max-sm:text-white max-sm:hover:text-[#00C853] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[#00C853] max-sm:pl-3 transition-colors duration-300'>
           <MdAgriculture className="text-2xl group-hover:scale-110 transition-transform duration-300" /> 
-          <span>Agrotech</span>
+          <span>AgriTech</span>
           <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#00C853] transition-all duration-300 group-hover:w-full shadow-[0_0_8px_#00C853] max-sm:hidden"></span>
         </a>
 

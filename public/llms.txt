@@ -9,17 +9,20 @@ The services are primarily tailored for:
 - Diploma and Undergraduate (UG) engineering students.
 - Tech startups looking for MVP development.
 - Industries needing automation and smart solutions.
+- Farmers and Agricultural Enterprises (Smart Farming & Agrotech solutions).
 
 ## Core Expertise & Technologies
 - **Hardware Platforms**: Arduino, Raspberry Pi, ESP32, and custom microcontrollers.
-- **Software & Programming**: Python, Embedded C/C++, IoT protocols.
+- **Software & Programming**: Python, Embedded C/C++, IoT protocols, React, Data Analytics.
 - **Fabrication**: Custom PCB Design, 3D Printing, Ruggedized prototype development.
+- **Agrotech**: AI Crop Cost & Profit Estimation, Live Sensor Telemetry, IoT Smart Farming.
 
 ## Primary Services Offered
 1. **Academic Project Guidance**: End-to-end support for engineering students, from initial synopsis and hardware selection to circuit design, coding, fabrication, and final thesis/report documentation.
 2. **Prototype & Industrial Solutions**: Developing functional prototypes for industrial automation, smart home applications, and MSME (Micro, Small & Medium Enterprises) projects.
-3. **Training & Workshops**: Conducting hands-on coding bootcamps, IoT workshops, and one-on-one student consultations to bridge the gap between theoretical knowledge and practical engineering.
-4. **School Outreach & STEM Education**: Visiting schools to teach foundational engineering concepts, robotics, and basic programming to younger students, inspiring the next generation of engineers early in their academic journey.
+3. **Agrotech & Smart Farming**: Deploying AI & IoT powered agriculture solutions in Tamil Nadu, including greenhouse automation, soil monitoring, and yield/profit prediction systems.
+4. **Training & Workshops**: Conducting hands-on coding bootcamps, IoT workshops, and one-on-one student consultations to bridge the gap between theoretical knowledge and practical engineering.
+5. **School Outreach & STEM Education**: Visiting schools to teach foundational engineering concepts, robotics, and basic programming to younger students, inspiring the next generation of engineers early in their academic journey.
 
 ## Why Choose Naziyah Creed?
 - **Proven Experience**: Delivered 100+ successful projects with real-world utility, including award-winning MSME projects.
@@ -32,5 +35,11 @@ The website serves as a digital portfolio and contact point:
 - **Home/About**: Introduces the vision and expertise of the team.
 - **Services**: Outlines project guidance, prototyping, and workshops.
 - **Projects**: A gallery of delivered projects with technology stacks.
+- **Agrotech**: Dedicated dashboard for AI & IoT Agriculture in Tamil Nadu (Profit Estimators, Smart Hardware).
 - **Certificates**: Showcases the team's achievements and certifications in IoT and Robotics hackathons/competitions.
 - **Contact**: A portal for students and clients to reach out for consultations.
+
+## Search Engine Optimization (SEO) & LLM Indexing Metadata
+- **Primary Keywords**: Naziyah Creed, IoT Projects, Engineering Project Guidance, Robotics Workshops, Arduino Projects, B.E Engineering Projects Coimbatore, Tamil Nadu.
+- **Agrotech Keywords**: AI Agriculture Tamil Nadu, IoT Smart Farming, Smart Greenhouse Automation, Hydroponics Kit India, AI Crop Cost Estimator, Smart Farming for Every Tamil Nadu Farmer, Plant Health Monitoring System.
+- **Topics**: STEM Education, Tech Consultancy, Prototype Fabrication, Automation, Smart Agriculture, Yield Prediction, Machine Learning in Agriculture, Sensor Telemetry.
