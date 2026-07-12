@@ -4,6 +4,10 @@ import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import HomePage from "./Pages/Home";
 
+import CertificatesPage from './Pages/CertificatesPage';
+import ProjectsPage from './Pages/ProjectsPage';
+import AgrotechPage from './Pages/Agrotech';
+
 function App() {
   const [theme, setTheme] = useState('theme-black');
 
@@ -21,8 +25,7 @@ function App() {
         <Routes>
           {/* Home scroll page */}
           <Route path="/" element={<HomePage />} />
-
-
+          <Route path="/agrotech" element={<AgrotechPage />} />
         </Routes>
 
 

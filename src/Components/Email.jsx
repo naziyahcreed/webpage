@@ -14,7 +14,7 @@ export default function Email() {
   const onSubmit = async (event) => {
     event.preventDefault();
     setResult("Sending....");
-    const formData = new FormData(event.target);
+    const formData = new FormData(event.target); 
 
     // Append Web3Forms Access Key
     formData.append("access_key", "a97d3f33-63af-4b29-8376-9d6e803af778");
