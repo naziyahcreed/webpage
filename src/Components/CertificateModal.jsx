@@ -47,6 +47,7 @@ export default function CertificateModal({ certificate, close }) {
                   <img
                     src={img}
                     alt={`${certificate.name} shot ${idx + 1}`}
+                    loading="lazy"
                     className="w-full h-full object-contain"
                   />
                 </SwiperSlide>
@@ -56,6 +57,7 @@ export default function CertificateModal({ certificate, close }) {
             <img
               src={images[0]}
               alt={certificate.name}
+              loading="lazy"
               className="w-full h-full object-contain"
             />
           )}

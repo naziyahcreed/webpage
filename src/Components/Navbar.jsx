@@ -1,30 +1,9 @@
-import logo from '/images/logo.png'
+import logo from '/images/logo.webp'
 import { GiCancel } from "react-icons/gi";
 import { IoMenuSharp } from "react-icons/io5";
 import { MdHome, MdInfoOutline, MdMiscellaneousServices, MdFolder, MdCardMembership, MdContactMail, MdAgriculture } from "react-icons/md";
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { motion } from 'framer-motion';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { useTexture } from '@react-three/drei';
-
-const Globe3D = () => {
-  const meshRef = useRef();
-  // Using a realistic public earth texture with proper CORS support
-  const colorMap = useTexture('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg');
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.3;
-      meshRef.current.rotation.x = 0.2;
-    }
-  });
-  return (
-    <mesh ref={meshRef} scale={1.8}>
-      <sphereGeometry args={[1, 64, 64]} />
-      <meshStandardMaterial map={colorMap} roughness={0.6} metalness={0.1} />
-    </mesh>
-  );
-};
 
 
 /* Removes white background from PNG using Canvas */
@@ -208,16 +187,7 @@ const Navbar = ({ theme, setTheme }) => {
         <div className="sm:hidden w-10 border-t border-[var(--accent)] opacity-30 my-1"></div>
 
         <div className="flex items-center gap-2 lg:gap-4">
-          {/* Desktop 3D Globe */}
-          <div className="hidden sm:flex w-10 h-10 lg:w-12 lg:h-12 items-center justify-center cursor-pointer hover:scale-110 transition-transform">
-            <Canvas camera={{ position: [0, 0, 4] }}>
-              <ambientLight intensity={1.5} />
-              <pointLight position={[10, 10, 10]} intensity={2} color="#ffffff" />
-              <Suspense fallback={null}>
-                <Globe3D />
-              </Suspense>
-            </Canvas>
-          </div>
+          {/* Removed Desktop 3D Globe */}
 
           {/* Theme Switcher - Inline on mobile, dropdown on desktop */}
           <div className="relative">

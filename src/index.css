@@ -159,8 +159,8 @@ html {
 }
 
 @keyframes slide-line {
-  0% { left: -100%; }
-  100% { left: 100%; }
+  0% { transform: translateX(-200%); }
+  100% { transform: translateX(200%); }
 }
 
 .animate-slide-line {

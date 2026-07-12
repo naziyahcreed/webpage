@@ -99,66 +99,66 @@ const Cloud3D = () => {
 const popupData = {
   "IoT Monitoring": {
     title: "IoT Monitoring",
-    image: "/images/agrotech/photo_2026-07-06_15-37-05.jpg",
+    image: "/images/agrotech/photo_2026-07-06_15-37-05.webp",
     desc: "Real-time field data collection using advanced IoT sensors. Monitor soil health, micro-climate, and crop conditions instantly from anywhere in the world."
   },
   "Drone Services": {
     title: "Drone Services",
-    image: "/images/agrotech/photo_2026-07-06_15-37-02.jpg",
+    image: "/images/agrotech/photo_2026-07-06_15-37-02.webp",
     desc: "Precision drone monitoring and automated spraying. Cover large acres of land in minutes, ensuring even distribution of nutrients and pesticides while saving time and resources."
   },
   "AI Advisory": {
     title: "AI Advisory",
-    image: "/images/agrotech/ai_advisory_agri.png",
+    image: "/images/agrotech/ai_advisory_agri.webp",
     desc: "Smart suggestions powered by Machine Learning. Our AI analyzes historical and real-time data to predict weather impacts, optimize harvest times, and recommend crop management strategies."
   },
   "Irrigation Control": {
     title: "Irrigation Control",
-    image: "/images/agrotech/photo_2026-07-06_15-37-07.jpg",
+    image: "/images/agrotech/photo_2026-07-06_15-37-07.webp",
     desc: "Smart water management systems. Automatically trigger irrigation based on exact soil moisture levels, drastically reducing water waste and preventing over-watering."
   },
   "Pest & Disease": {
     title: "Pest & Disease",
-    image: "/images/agrotech/photo_2026-07-06_15-37-04.jpg",
+    image: "/images/agrotech/photo_2026-07-06_15-37-04.webp",
     desc: "Early detection and alerts for pest infestations or crop diseases. Computer vision identifies threats before they spread, allowing for targeted organic treatments."
   },
   "Field Camera": {
     title: "Live Field Camera",
-    image: "/images/agrotech/photo_2026-07-06_15-37-05.jpg",
+    image: "/images/agrotech/photo_2026-07-06_15-37-05.webp",
     desc: "24/7 visual monitoring of your crops. Check the physical status of your farm remotely, deter trespassers, and verify sensor alerts with live video feeds."
   },
   "Soil Moisture": {
     title: "Soil Moisture Analytics",
-    image: "/images/agrotech/photo_2026-07-06_15-37-07.jpg",
+    image: "/images/agrotech/photo_2026-07-06_15-37-07.webp",
     desc: "Detailed historical tracking of soil hydration levels across multiple zones. Currently at 45% (Optimal) for the vegetative growth stage of your primary crop."
   },
   "Temperature": {
     title: "Micro-Climate Temperature",
-    image: "/images/agrotech/photo_2026-07-06_15-37-05.jpg",
+    image: "/images/agrotech/photo_2026-07-06_15-37-05.webp",
     desc: "Continuous temperature monitoring at the canopy level. 32.4°C is within the normal tolerance for your current crop, meaning no heat-stress mitigation is currently required."
   },
   "Humidity": {
     title: "Humidity Levels",
-    image: "/images/agrotech/photo_2026-07-06_15-37-04.jpg",
+    image: "/images/agrotech/photo_2026-07-06_15-37-04.webp",
     desc: "Ambient humidity is currently 65%. Monitoring humidity is critical for predicting fungal diseases and optimizing the timing for drone spraying operations."
   },
   "Drone Status": {
     title: "Active Drone Operation",
-    image: "/images/agrotech/photo_2026-07-06_15-37-02.jpg",
+    image: "/images/agrotech/photo_2026-07-06_15-37-02.webp",
     desc: "Drone currently in operation over Sector B. Battery is at 85%. Estimated time to completion is 12 minutes. Live telemetry is nominal."
   }
 };
 
 const bgImages = [
-  "/images/agrotech/photo_2026-07-06_15-36-59.jpg",
-  "/images/agrotech/ai_advisory_agri.png"
+  "/images/agrotech/photo_2026-07-06_15-36-59.webp",
+  "/images/agrotech/ai_advisory_agri.webp"
 ];
 
 const productsData = [
   {
     id: 1,
     name: "Smart AgriNode – IoT Irrigation Controller",
-    image: "/images/Products/Product 1 – Smart AgriNode (IoT Irrigation Controller).png",
+    image: "/images/Products/Product 1 – Smart AgriNode (IoT Irrigation Controller).webp",
     overview: "Smart AgriNode is an intelligent IoT-based irrigation controller designed to automate watering based on real-time environmental conditions. Using advanced sensors and wireless connectivity, it monitors soil moisture, water levels, and climate parameters to ensure crops receive the right amount of water at the right time.",
     suitableFor: "Farmers, Terrace Gardens, Greenhouses, Educational Institutions",
     metrics: [
@@ -170,7 +170,7 @@ const productsData = [
   {
     id: 2,
     name: "Smart Terrace Garden Automation Kit",
-    image: "/images/Products/Product 2 – Smart Terrace Garden Automation Kit.png",
+    image: "/images/Products/Product 2 – Smart Terrace Garden Automation Kit.webp",
     overview: "The Smart Terrace Garden Automation Kit is designed for busy individuals who want to grow healthy plants without worrying about daily watering and monitoring. The system automatically irrigates plants based on soil moisture levels while allowing users to monitor their garden remotely through a mobile application.",
     suitableFor: "Apartments, Homes, Rooftop Gardens, Hobby Gardeners",
     metrics: [
@@ -182,7 +182,7 @@ const productsData = [
   {
     id: 3,
     name: "AI Smart Hydroponics Kit",
-    image: "/images/Products/Product 3 – AI Smart Hydroponics Kit.png",
+    image: "/images/Products/Product 3 – AI Smart Hydroponics Kit.webp",
     overview: "The AI Smart Hydroponics Kit enables sustainable soil-less farming through intelligent automation. It continuously monitors nutrient levels, water circulation, pH, and environmental conditions to create the perfect growing environment for leafy vegetables and herbs. Combines AI and IoT technologies to maximize crop health.",
     suitableFor: "Indoor Farming, Schools, Colleges, Urban Agriculture",
     metrics: [
@@ -194,7 +194,7 @@ const productsData = [
   {
     id: 4,
     name: "Smart Water Tank Monitoring System",
-    image: "/images/Products/Product 4 – Smart Water Tank Monitoring System.png",
+    image: "/images/Products/Product 4 – Smart Water Tank Monitoring System.webp",
     overview: "The Smart Water Tank Monitoring System provides real-time monitoring of water levels and automatically controls water pumps to prevent overflow and dry running. Users can monitor tank status from anywhere using a smartphone, reducing water wastage and ensuring uninterrupted water availability.",
     suitableFor: "Residential Buildings, Farms, Apartments, Industries",
     metrics: [
@@ -206,7 +206,7 @@ const productsData = [
   {
     id: 5,
     name: "AI Smart Greenhouse Controller",
-    image: "/images/Products/Product 5 – AI Smart Greenhouse Controller.png",
+    image: "/images/Products/Product 5 – AI Smart Greenhouse Controller.webp",
     overview: "The AI Smart Greenhouse Controller intelligently manages irrigation, ventilation, lighting, and environmental conditions to maintain the ideal climate for crop growth. By continuously analyzing sensor data, the system optimizes greenhouse operations, improving productivity while reducing energy and water consumption.",
     suitableFor: "Greenhouses, Nurseries, Commercial Farms",
     metrics: [
@@ -218,7 +218,7 @@ const productsData = [
   {
     id: 6,
     name: "Smart Plant Health Monitoring Kit",
-    image: "/images/Products/Product 6 – Smart Plant Health Monitoring Kit.png",
+    image: "/images/Products/Product 6 – Smart Plant Health Monitoring Kit.webp",
     overview: "The Smart Plant Health Monitoring Kit combines artificial intelligence and computer vision to monitor plant health in real time. The system detects early signs of diseases, nutrient deficiencies, and environmental stress, allowing growers to take preventive action before crop damage occurs.",
     suitableFor: "Farmers, Researchers, Educational Institutions, Greenhouses",
     metrics: [
@@ -230,7 +230,7 @@ const productsData = [
   {
     id: 7,
     name: "Smart Indoor Farming System",
-    image: "/images/Products/Product 7 – Smart Indoor Farming Automation System.png",
+    image: "/images/Products/Product 7 – Smart Indoor Farming Automation System.webp",
     overview: "The Smart Indoor Farming System brings sustainable farming into homes and offices through a fully automated growing solution. Equipped with smart irrigation, LED grow lighting, environmental monitoring, and IoT connectivity, the system allows users to cultivate fresh vegetables and herbs throughout the year.",
     suitableFor: "Homes, Offices, Apartments, Smart Homes",
     metrics: [
@@ -242,7 +242,7 @@ const productsData = [
   {
     id: 8,
     name: "Modular Smart Agriculture Starter Kit",
-    image: "/images/Products/Product 8 – Modular Smart Agriculture Starter Kit.png",
+    image: "/images/Products/Product 8 – Modular Smart Agriculture Starter Kit.webp",
     overview: "The Modular Smart Agriculture Starter Kit is an educational and development platform designed for students, researchers, startups, and innovators. It includes programmable controllers, sensors, automation modules, and IoT connectivity, enabling users to build and experiment with real-world smart agriculture applications.",
     suitableFor: "Students, Engineering Colleges, Researchers, Startups",
     metrics: [
@@ -333,7 +333,7 @@ const Agrotech = () => {
           </motion.span>
 
           <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-6 max-w-4xl drop-shadow-lg">
-            <span className="text-[#00f3ff] drop-shadow-[0_0_15px_rgba(0,243,255,0.8)]">AI & IoT</span> Powered <span className="text-transparent animate-flow-bg font-black tracking-tight" style={{ backgroundImage: `url('/images/agrotech/photo_2026-07-06_15-37-01.jpg')`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', WebkitTextStroke: '2px rgba(255,255,255,0.7)', backgroundSize: '300% auto', filter: 'brightness(1.5)' }}>Agriculture</span> <br/><span className="text-[#aaff99]">for Every Tamil Nadu Farmer</span>
+            <span className="text-[#00f3ff] drop-shadow-[0_0_15px_rgba(0,243,255,0.8)]">AI & IoT</span> Powered <span className="text-transparent animate-flow-bg font-black tracking-tight" style={{ backgroundImage: `url('/images/agrotech/photo_2026-07-06_15-37-01.webp')`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', WebkitTextStroke: '2px rgba(255,255,255,0.7)', backgroundSize: '300% auto', filter: 'brightness(1.5)' }}>Agriculture</span> <br/><span className="text-[#aaff99]">for Every Tamil Nadu Farmer</span>
           </motion.h2>
           
           <motion.h3 variants={fadeUp} className="text-xl md:text-2xl font-bold text-gray-200 mb-3 drop-shadow-md">
@@ -413,7 +413,7 @@ const Agrotech = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           
           <motion.div variants={fadeUp} onClick={() => openPopup("Field Camera")} className="col-span-1 lg:col-span-2 glass-card rounded-3xl overflow-hidden shadow-xl relative min-h-[300px] cursor-pointer hover:shadow-2xl transition-all hover:-translate-y-1 group">
-             <img src="/images/agrotech/photo_2026-07-06_15-37-05.jpg" alt="Field Camera" className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+             <img src="/images/agrotech/photo_2026-07-06_15-37-05.webp" alt="Field Camera" loading="lazy" decoding="async" className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
              <div className="absolute top-6 left-6 bg-green-600 text-white text-xs font-bold px-3 py-1.5 rounded-md shadow-lg flex items-center gap-2">
                <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>LIVE
              </div>
@@ -493,7 +493,7 @@ const Agrotech = () => {
               </div>
             </div>
             <div className="w-full md:w-64 h-64 rounded-2xl border-8 border-black/30 flex items-center justify-center shadow-inner overflow-hidden shrink-0">
-               <img src="/images/agrotech/photo_2026-07-06_15-37-02.jpg" alt="Drone" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" />
+               <img src="/images/agrotech/photo_2026-07-06_15-37-02.webp" alt="Drone" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" />
             </div>
           </motion.div>
 
@@ -658,6 +658,8 @@ const Agrotech = () => {
                 <img 
                   src={product.image} 
                   alt={product.name} 
+                  loading="lazy"
+                  decoding="async"
                   className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -702,7 +704,7 @@ const Agrotech = () => {
             </button>
             
             <div className="w-full h-48 md:h-80 bg-gray-900 relative shrink-0">
-              <img src={activePopup.image} alt={activePopup.title} className="w-full h-full object-cover opacity-80" />
+              <img src={activePopup.image} alt={activePopup.title} loading="lazy" decoding="async" className="w-full h-full object-cover opacity-80" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#041C18] via-transparent to-transparent"></div>
               <h3 className="absolute bottom-4 md:bottom-6 left-6 md:left-8 text-3xl md:text-4xl font-extrabold text-white drop-shadow-lg tracking-tight">
                 {activePopup.title}
