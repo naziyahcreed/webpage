@@ -138,6 +138,7 @@ const CostEngineApp: React.FC = () => {
                 <Sprout size={18} className="text-[#00D084]" /> Crop Selection
               </label>
               <select 
+                aria-label="Select crop"
                 value={selectedCropName} 
                 onChange={(e) => setSelectedCropName(e.target.value)}
                 className="w-full bg-black/40 border border-white/10 text-white text-lg rounded-xl px-4 py-3 focus:outline-none focus:border-[#00D084] focus:ring-1 focus:ring-[#00D084] transition-colors appearance-none cursor-pointer"

@@ -4,8 +4,9 @@ import ContentBox from '../Components/ContentBox';
 import OurMission from '../Components/Services';
 import About from '../Components/About';
 import Email from '../Components/Email';
-import CertificatesPage from './CertificatesPage';
-import ProjectsPage from './ProjectsPage';
+import React, { Suspense } from 'react';
+const CertificatesPage = React.lazy(() => import('./CertificatesPage'));
+const ProjectsPage = React.lazy(() => import('./ProjectsPage'));
 import SEO from '../Components/SEO';
 
 
@@ -29,7 +30,7 @@ const SectionDivider = () => (
 
 const Home = () => {
   return (
-    <div className="pb-10">
+    <main className="pb-10">
       <SEO />
       <script type="application/ld+json">
         {JSON.stringify({
@@ -37,7 +38,7 @@ const Home = () => {
           "@type": "Organization",
           "name": "Naziyah Creed",
           "url": "https://naziyahcreed.com", 
-          "logo": "https://naziyahcreed.com/logo.png",
+          "logo": "https://naziyahcreed.com/logo.webp",
           "description": "Expert engineering project guidance in Automation, IoT, and Robotics for Diploma and UG students.",
           "contactPoint": {
              "@type": "ContactPoint",
@@ -65,19 +66,23 @@ const Home = () => {
 
       <SectionDivider />
       <RunningBorderSection id="certificates">
-        <CertificatesPage />
+        <Suspense fallback={<div className="text-center p-10 text-[var(--accent)] font-semibold">Loading Certificates...</div>}>
+          <CertificatesPage />
+        </Suspense>
       </RunningBorderSection>
 
       <SectionDivider />
       <RunningBorderSection id="projects">
-        <ProjectsPage />
+        <Suspense fallback={<div className="text-center p-10 text-[var(--accent)] font-semibold">Loading Projects...</div>}>
+          <ProjectsPage />
+        </Suspense>
       </RunningBorderSection>
 
       <SectionDivider />
       <RunningBorderSection id="contact">
         <Email />
       </RunningBorderSection>
-    </div>
+    </main>
   );
 };
 

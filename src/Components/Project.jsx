@@ -21,6 +21,8 @@ const ProjectCard = ({ project, onSelect }) => (
         <img
           src={project.images && project.images.length > 0 ? project.images[0] : "https://placehold.co/800x600?text=No+Image"}
           alt={project.title}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
@@ -135,9 +137,9 @@ const ProjectDetail = ({ project, onBack }) => {
       </button>
 
       {/* Project Heading */}
-      <h1 className="text-4xl sm:text-5xl font-extrabold text-[var(--text-primary)] mb-4 md:mb-6 leading-tight">
+      <h2 className="text-4xl sm:text-5xl font-extrabold text-[var(--text-primary)] mb-4 md:mb-6 leading-tight">
         {project.title}
-      </h1>
+      </h2>
       <p className="text-xl mb-8 golden-text">
         Detailed Project Overview
       </p>
@@ -150,7 +152,7 @@ const ProjectDetail = ({ project, onBack }) => {
 
           {/* 1. Image Gallery */}
           <div className="bg-[var(--bg-secondary)] p-4 shadow-xl rounded-xl golden-border-textured">
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">Project Gallery</h2>
+            <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">Project Gallery</h3>
             <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg ring-4 ring-[#fcd34d]/50">
                {project.images && project.images.length > 0 ? (
                   <Swiper
@@ -166,6 +168,8 @@ const ProjectDetail = ({ project, onBack }) => {
                         <img 
                           src={img} 
                           alt={`Slide ${index}`} 
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover"
                         />
                       </SwiperSlide>
@@ -181,7 +185,7 @@ const ProjectDetail = ({ project, onBack }) => {
 
           {/* 2. Project Description Card */}
           <div className="bg-[var(--bg-secondary)] p-6 shadow-xl rounded-xl golden-border-textured h-fit">
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">Project Description</h2>
+            <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">Project Description</h3>
             <div 
               className="text-[var(--text-secondary)] leading-relaxed prose prose-invert max-w-none"
               dangerouslySetInnerHTML={{ __html: project.full_description }}
@@ -192,12 +196,12 @@ const ProjectDetail = ({ project, onBack }) => {
         {/* 3. RIGHT SECTION: Info / Tags (Modified from Final Product Snapshot) */}
         <div className="md:col-span-1">
           <div className="bg-[var(--bg-secondary)] p-4 shadow-xl rounded-xl golden-border-textured sticky top-4">
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">Project Details</h2>
+            <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">Project Details</h3>
              {/* Use the first image as a thumbnail if needed, or remove. 
                  Since we have a gallery, maybe just show tags here. */}
             
             <div className="mb-6">
-                 <h3 className="text-lg font-semibold mb-2 golden-text">Technologie Stack</h3>
+                 <h4 className="text-lg font-semibold mb-2 golden-text">Technologie Stack</h4>
                  <div className="flex flex-wrap gap-2">
                     {project.tags && project.tags.map((tag, i) => (
                         <span key={i} className="px-3 py-1 bg-[var(--bg-secondary)] rounded-full text-sm golden-border-textured golden-text font-bold">
