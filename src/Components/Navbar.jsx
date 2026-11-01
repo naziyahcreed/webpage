@@ -1,9 +1,10 @@
-import logo from '/images/logo.png'
+import logo from '/images/logo.webp'
 import { GiCancel } from "react-icons/gi";
 import { IoMenuSharp } from "react-icons/io5";
-import { MdHome, MdInfoOutline, MdMiscellaneousServices, MdFolder, MdCardMembership, MdContactMail } from "react-icons/md";
-import { useState, useEffect, useRef } from 'react';
+import { MdHome, MdInfoOutline, MdMiscellaneousServices, MdFolder, MdCardMembership, MdContactMail, MdAgriculture } from "react-icons/md";
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { motion } from 'framer-motion';
+
 
 /* Removes white background from PNG using Canvas */
 const TransparentLogo = ({ src, className, threshold = 230 }) => {
@@ -162,6 +163,13 @@ const Navbar = ({ theme, setTheme }) => {
           <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--accent)] transition-all duration-300 group-hover:w-full shadow-[0_0_8px_var(--accent)] max-sm:hidden"></span>
         </a>
 
+        <a href="/agrotech" onClick={() => setSidebar(false)}
+          className='group relative flex items-center gap-2 text-base font-semibold tracking-wide text-[#00C853] hover:text-[#00E676] max-sm:text-white max-sm:hover:text-[#00C853] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[#00C853] max-sm:pl-3 transition-colors duration-300'>
+          <MdAgriculture className="text-2xl group-hover:scale-110 transition-transform duration-300" /> 
+          <span>AgriTech</span>
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#00C853] transition-all duration-300 group-hover:w-full shadow-[0_0_8px_#00C853] max-sm:hidden"></span>
+        </a>
+
         <a href="/#certificates" onClick={() => setSidebar(false)}
           className='group relative flex items-center gap-2 text-base font-semibold tracking-wide text-[var(--text-primary)] max-sm:text-white hover:text-[var(--accent)] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[var(--accent)] max-sm:pl-3 transition-colors duration-300'>
           <MdCardMembership className="text-2xl group-hover:scale-110 transition-transform duration-300" /> 
@@ -178,8 +186,11 @@ const Navbar = ({ theme, setTheme }) => {
 
         <div className="sm:hidden w-10 border-t border-[var(--accent)] opacity-30 my-1"></div>
 
-        {/* Theme Switcher - Inline on mobile, dropdown on desktop */}
-        <div className="relative">
+        <div className="flex items-center gap-2 lg:gap-4">
+          {/* Removed Desktop 3D Globe */}
+
+          {/* Theme Switcher - Inline on mobile, dropdown on desktop */}
+          <div className="relative">
           {/* Desktop: dropdown button */}
           <button
             onClick={() => setThemeDropdownOpen(!themeDropdownOpen)}
@@ -227,6 +238,7 @@ const Navbar = ({ theme, setTheme }) => {
               </button>
             </div>
           </div>
+        </div>
         </div>
       </div>
 

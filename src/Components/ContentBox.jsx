@@ -38,9 +38,9 @@ const ContentBox = () => {
 
   return (
     <div className="min-h-fit bg-[var(--bg-primary)] px-4 sm:px-6 lg:px-10 py-10 ">
-      <h1 className="text-4xl font-bold text-center pb-10 scroll:text-[var(--text-primary)] scroll-smooth golden-text">
+      <h2 className="text-4xl font-bold text-center pb-10 scroll:text-[var(--text-primary)] scroll-smooth golden-text">
         Why Choose us?
-      </h1>
+      </h2>
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto ">
         {cards.map((card, index) => (
           <motion.div
@@ -52,9 +52,9 @@ const ContentBox = () => {
             className="running-border-container running-border-blue shadow-md hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 cursor-default"
           >
             <div className="running-border-content bg-[var(--bg-secondary)] text-[var(--text-primary)] p-6 h-full flex flex-col">
-              <h2 className="text-xl font-semibold text-[var(--accent-secondary)] mb-2">
+              <h3 className="text-xl font-semibold text-[var(--accent-secondary)] mb-2">
                 {card.title}
-              </h2>
+              </h3>
               <p className="text-[var(--text-primary)] leading-relaxed">{card.content}</p>
             </div>
           </motion.div>

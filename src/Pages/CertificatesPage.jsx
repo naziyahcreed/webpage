@@ -41,9 +41,9 @@ export default function CertificatesPage() {
         description="View our certifications and achievements in IoT and Robotics competitions."
       />
 
-      <h1 className="text-4xl font-bold text-center mb-10 golden-text">
+      <h2 className="text-4xl font-bold text-center mb-10 golden-text">
         Our Achievements
-      </h1>
+      </h2>
 
       {/* Filter Buttons */}
       <div className="flex flex-wrap gap-4 justify-center mb-8">
@@ -70,6 +70,7 @@ export default function CertificatesPage() {
         />
 
         <select
+          aria-label="Sort certificates"
           className="px-4 py-2 border rounded-lg w-full sm:w-1/4 golden-btn shadow-lg text-black appearance-none h-12 flex items-center justify-center text-center"
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
@@ -96,10 +97,12 @@ export default function CertificatesPage() {
                 <img
                   src={cert.image_url || "https://placehold.co/600x400?text=No+Certificate"}
                   alt={cert.name}
+                  loading="lazy"
+                  decoding="async"
                   className="h-48 w-full object-cover rounded-md"
                 />
 
-                <h2 className="font-bold text-xl mt-3">{cert.name}</h2>
+                <h3 className="font-bold text-xl mt-3">{cert.name}</h3>
                 <p className="text-black font-bold">{cert.date}</p>
               </div>
             </motion.div>

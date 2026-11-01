@@ -8,7 +8,7 @@ const SEO = ({ title, description, keywords, image, url }) => {
   // Expanded Keyword List for Ranking
   const defaultKeywords = "Naziyah Creed, IoT Projects, Robotics Projects, Engineering Consultancy, Final Year Projects, ESP32, Arduino, Raspberry Pi, Python, Home Automation, Smart Systems, Industrial Automation, PCB Design, 3D Printing, MSME Projects, Diploma Engineering Projects, B.Tech Projects, Student Guidance, Tech Prototypes";
   
-  const defaultImage = "https://naziyahcreed.com/logo.png"; // Absolute URL preferred for SEO
+  const defaultImage = "https://naziyahcreed.com/logo.webp"; // Absolute URL preferred for SEO
   const siteUrl = "https://naziyahcreed.com";
   const currentUrl = url || siteUrl;
 

@@ -14,7 +14,7 @@ export default function Email() {
   const onSubmit = async (event) => {
     event.preventDefault();
     setResult("Sending....");
-    const formData = new FormData(event.target);
+    const formData = new FormData(event.target); 
 
     // Append Web3Forms Access Key
     formData.append("access_key", "a97d3f33-63af-4b29-8376-9d6e803af778");
@@ -61,7 +61,7 @@ export default function Email() {
           {/* Left Side: Contact Info / CTA */}
           <div className="md:col-span-2 golden-bg p-8 flex flex-col justify-between relative overflow-hidden">
              <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-4 text-black">Let's Discuss Your Project</h3>
+                <h2 className="text-2xl font-bold mb-4 text-black">Let's Discuss Your Project</h2>
                 <p className="mb-6 text-black">
                   Ready to bring your ideas to life? Fill out the form and I'll get back to you within 24 hours.
                 </p>
