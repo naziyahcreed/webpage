@@ -1,99 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   MdSettingsRemote, MdPrecisionManufacturing, MdPsychology,
   MdWaterDrop, MdBugReport, MdArrowForward, MdSensors, MdAnalytics,
   MdPlayCircleOutline, MdClose, MdWarning, MdInfo, MdCheckCircle
 } from 'react-icons/md';
 import { FaLeaf, FaTractor } from 'react-icons/fa';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Float } from '@react-three/drei';
-import * as THREE from 'three';
 import { motion, AnimatePresence } from 'framer-motion';
 import FuturisticBackground from '../Components/FuturisticBackground';
 import CostEngineApp from '../Components/CostEngine/CostEngineApp';
 import { Droplets, Activity, Thermometer, Zap, Database, Cpu, Wind, Lightbulb, ShieldAlert, Sprout } from 'lucide-react';
-// --- IMPROVED 3D MINI COMPONENTS FOR CARDS ---
-
-const WaterDrop3D = () => {
-  const groupRef = useRef();
-  useFrame((state) => {
-    groupRef.current.rotation.y = state.clock.elapsedTime * 0.5;
-    groupRef.current.position.y = Math.sin(state.clock.elapsedTime * 2) * 0.1;
-  });
-  
-  return (
-    <group ref={groupRef} scale={1.1} position={[0, 0.2, 0]}>
-      <mesh position={[0, -0.3, 0]}>
-        <sphereGeometry args={[0.7, 64, 64]} />
-        <meshPhysicalMaterial color="#3b82f6" transmission={1} opacity={1} metalness={0.2} roughness={0} ior={1.52} thickness={2} />
-      </mesh>
-      <mesh position={[0, 0.35, 0]}>
-        <coneGeometry args={[0.7, 1.4, 64]} />
-        <meshPhysicalMaterial color="#3b82f6" transmission={1} opacity={1} metalness={0.2} roughness={0} ior={1.52} thickness={2} />
-      </mesh>
-      {[...Array(3)].map((_, i) => (
-        <mesh key={i} position={[Math.cos(i * 2.1) * 1.5, Math.sin(i * 1.5) * 0.8, Math.sin(i * 2.1) * 1.5]} scale={0.15}>
-          <sphereGeometry args={[1, 32, 32]} />
-          <meshPhysicalMaterial color="#93c5fd" transmission={1} roughness={0} thickness={0.5} />
-        </mesh>
-      ))}
-      <ambientLight intensity={2} />
-      <directionalLight position={[5, 10, 5]} intensity={3} color="#ffffff" />
-    </group>
-  );
-};
-
-const Sun3D = () => {
-  const meshRef = useRef();
-  useFrame((state) => {
-    meshRef.current.rotation.y = state.clock.elapsedTime * 0.2;
-    meshRef.current.rotation.z = state.clock.elapsedTime * 0.1;
-  });
-  return (
-    <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
-      <group scale={1.2}>
-        <mesh ref={meshRef}>
-           <sphereGeometry args={[1, 64, 64]} />
-           <meshStandardMaterial color="#f97316" emissive="#ea580c" emissiveIntensity={3} roughness={0.2} wireframe={false} />
-        </mesh>
-        <mesh scale={1.1}>
-           <icosahedronGeometry args={[1, 2]} />
-           <meshStandardMaterial color="#fef08a" emissive="#eab308" emissiveIntensity={1} wireframe={true} transparent opacity={0.5} />
-        </mesh>
-        <mesh scale={1.4}>
-          <sphereGeometry args={[1, 32, 32]} />
-          <meshBasicMaterial color="#fb923c" transparent opacity={0.2} blending={THREE.AdditiveBlending} />
-        </mesh>
-        <mesh scale={1.7}>
-          <sphereGeometry args={[1, 32, 32]} />
-          <meshBasicMaterial color="#ef4444" transparent opacity={0.1} blending={THREE.AdditiveBlending} />
-        </mesh>
-      </group>
-      <ambientLight intensity={1} />
-      <pointLight position={[0, 0, 0]} intensity={8} color="#fef08a" distance={15} />
-    </Float>
-  );
-};
-
-const Cloud3D = () => {
-  const groupRef = useRef();
-  useFrame(() => {
-    groupRef.current.rotation.y -= 0.005;
-  });
-  return (
-    <Float speed={2} rotationIntensity={0.1} floatIntensity={1}>
-      <group ref={groupRef} scale={0.9} position={[0, -0.2, 0]}>
-        <mesh position={[0, 0, 0]}><sphereGeometry args={[1, 64, 64]} /><meshStandardMaterial color="#ffffff" roughness={1} metalness={0} /></mesh>
-        <mesh position={[-0.8, -0.2, 0]}><sphereGeometry args={[0.7, 64, 64]} /><meshStandardMaterial color="#ffffff" roughness={1} metalness={0} /></mesh>
-        <mesh position={[0.8, -0.2, 0]}><sphereGeometry args={[0.7, 64, 64]} /><meshStandardMaterial color="#ffffff" roughness={1} metalness={0} /></mesh>
-        <mesh position={[-0.4, 0.5, 0]}><sphereGeometry args={[0.6, 64, 64]} /><meshStandardMaterial color="#ffffff" roughness={1} metalness={0} /></mesh>
-        <mesh position={[0.4, 0.5, 0]}><sphereGeometry args={[0.6, 64, 64]} /><meshStandardMaterial color="#ffffff" roughness={1} metalness={0} /></mesh>
-      </group>
-      <ambientLight intensity={1.5} />
-      <directionalLight position={[-5, 5, 5]} intensity={1} color="#ffffff" />
-    </Float>
-  );
-};
 
 // Popup Data Mapping
 const popupData = {
@@ -129,17 +44,17 @@ const popupData = {
   },
   "Soil Moisture": {
     title: "Soil Moisture Analytics",
-    image: "/images/agrotech/photo_2026-07-06_15-37-07.webp",
+    image: "/images/agrotech/soil_moisture_ai.webp",
     desc: "Detailed historical tracking of soil hydration levels across multiple zones. Currently at 45% (Optimal) for the vegetative growth stage of your primary crop."
   },
   "Temperature": {
     title: "Micro-Climate Temperature",
-    image: "/images/agrotech/photo_2026-07-06_15-37-05.webp",
+    image: "/images/agrotech/temperature_ai.webp",
     desc: "Continuous temperature monitoring at the canopy level. 32.4°C is within the normal tolerance for your current crop, meaning no heat-stress mitigation is currently required."
   },
   "Humidity": {
     title: "Humidity Levels",
-    image: "/images/agrotech/photo_2026-07-06_15-37-04.webp",
+    image: "/images/agrotech/humidity_ai.webp",
     desc: "Ambient humidity is currently 65%. Monitoring humidity is critical for predicting fungal diseases and optimizing the timing for drone spraying operations."
   },
   "Drone Status": {
@@ -426,45 +341,111 @@ const Agrotech = () => {
              </div>
           </motion.div>
 
-          <motion.div variants={fadeUp} onClick={() => openPopup("Soil Moisture")} className="glass-card p-8 rounded-3xl shadow-lg border-blue-900/50 flex flex-col justify-between cursor-pointer hover:border-blue-500/50 hover:shadow-blue-900/20 transition-all hover:-translate-y-1 relative overflow-hidden h-[300px]">
+          {/* 1. Soil Moisture Telemetry Card */}
+          <motion.div variants={fadeUp} onClick={() => openPopup("Soil Moisture")} className="glass-card p-6 md:p-7 rounded-3xl shadow-lg border border-blue-500/30 flex flex-col justify-between cursor-pointer hover:border-blue-400/80 hover:shadow-[0_0_30px_rgba(59,130,246,0.35)] transition-all duration-300 hover:-translate-y-1 relative overflow-hidden h-[300px] group">
             <div className="relative z-10">
-              <div className="flex items-center justify-between mb-4">
-                <p className="text-gray-300 text-sm font-bold uppercase tracking-wider">Soil Moisture</p>
-                <MdWaterDrop className="text-blue-400 text-2xl" />
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-gray-300 text-xs font-bold uppercase tracking-wider">Soil Moisture</span>
+                <span className="p-2 rounded-xl bg-blue-500/20 text-blue-400 border border-blue-500/30 group-hover:scale-110 group-hover:bg-blue-500/30 transition-all">
+                  <MdWaterDrop className="text-xl" />
+                </span>
               </div>
-              <h3 className="text-6xl font-extrabold text-white tracking-tighter">45<span className="text-4xl text-blue-300">%</span></h3>
-              <p className="text-sm font-bold text-blue-200 mt-2 bg-blue-900/40 w-max px-3 py-1 rounded-full border border-blue-500/30">Optimal</p>
+              <h3 className="text-5xl font-black text-white tracking-tighter">45<span className="text-3xl text-blue-400 font-bold">%</span></h3>
+              <div className="flex items-center gap-2 mt-2">
+                <span className="text-xs font-bold text-blue-200 bg-blue-950/80 px-2.5 py-1 rounded-full border border-blue-500/40">Optimal</span>
+                <span className="text-[11px] text-gray-400 font-medium">Zone 2 Sensor</span>
+              </div>
             </div>
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 opacity-60 pointer-events-none">
-              <Canvas camera={{ position: [0, 0, 5], fov: 45 }}><WaterDrop3D /></Canvas>
+
+            <div className="relative z-10 flex items-center justify-between pt-3 border-t border-white/10 text-xs text-blue-200/90 font-medium">
+              <span>Depth: 15cm</span>
+              <span className="flex items-center gap-1.5 text-green-400 font-bold"><span className="w-2 h-2 rounded-full bg-green-400 animate-ping" /> Live Sync</span>
+            </div>
+
+            {/* AI Generated 3D Telemetry Asset with Soft Ambient Glow */}
+            <div className="absolute -bottom-4 -right-4 w-44 h-44 pointer-events-none group-hover:scale-110 transition-transform duration-500 ease-out">
+              <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-2xl" />
+              <img 
+                src="/images/agrotech/soil_moisture_ai.webp" 
+                alt="Soil Moisture AI Sensor"
+                loading="lazy"
+                decoding="async"
+                width="176"
+                height="176"
+                className="w-full h-full object-contain rounded-2xl relative z-10 mix-blend-screen opacity-90 group-hover:opacity-100 transition-opacity"
+              />
             </div>
           </motion.div>
 
-          <motion.div variants={fadeUp} onClick={() => openPopup("Temperature")} className="glass-card p-8 rounded-3xl shadow-lg border-orange-900/50 flex flex-col justify-between cursor-pointer hover:border-orange-500/50 hover:shadow-orange-900/20 transition-all hover:-translate-y-1 relative overflow-hidden h-[300px]">
+          {/* 2. Micro-Climate Temperature Card */}
+          <motion.div variants={fadeUp} onClick={() => openPopup("Temperature")} className="glass-card p-6 md:p-7 rounded-3xl shadow-lg border border-orange-500/30 flex flex-col justify-between cursor-pointer hover:border-orange-400/80 hover:shadow-[0_0_30px_rgba(249,115,22,0.35)] transition-all duration-300 hover:-translate-y-1 relative overflow-hidden h-[300px] group">
             <div className="relative z-10">
-              <div className="flex items-center justify-between mb-4">
-                <p className="text-gray-300 text-sm font-bold uppercase tracking-wider">Temperature</p>
-                <MdSensors className="text-orange-400 text-2xl" />
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-gray-300 text-xs font-bold uppercase tracking-wider">Temperature</span>
+                <span className="p-2 rounded-xl bg-orange-500/20 text-orange-400 border border-orange-500/30 group-hover:scale-110 group-hover:bg-orange-500/30 transition-all">
+                  <MdSensors className="text-xl" />
+                </span>
               </div>
-              <h3 className="text-6xl font-extrabold text-white tracking-tighter">32.4<span className="text-4xl text-orange-300">°</span></h3>
-              <p className="text-sm font-bold text-orange-200 mt-2 bg-orange-900/40 w-max px-3 py-1 rounded-full border border-orange-500/30">Normal Range</p>
+              <h3 className="text-5xl font-black text-white tracking-tighter">32.4<span className="text-3xl text-orange-400 font-bold">°C</span></h3>
+              <div className="flex items-center gap-2 mt-2">
+                <span className="text-xs font-bold text-orange-200 bg-orange-950/80 px-2.5 py-1 rounded-full border border-orange-500/40">Normal Range</span>
+                <span className="text-[11px] text-gray-400 font-medium">Canopy Level</span>
+              </div>
             </div>
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 opacity-60 pointer-events-none">
-              <Canvas camera={{ position: [0, 0, 5], fov: 45 }}><Sun3D /></Canvas>
+
+            <div className="relative z-10 flex items-center justify-between pt-3 border-t border-white/10 text-xs text-orange-200/90 font-medium">
+              <span>Heat Index: 34°</span>
+              <span className="flex items-center gap-1.5 text-green-400 font-bold"><span className="w-2 h-2 rounded-full bg-green-400 animate-ping" /> Live Sync</span>
+            </div>
+
+            {/* AI Generated 3D Telemetry Asset with Soft Ambient Glow */}
+            <div className="absolute -bottom-4 -right-4 w-44 h-44 pointer-events-none group-hover:scale-110 transition-transform duration-500 ease-out">
+              <div className="absolute inset-0 bg-orange-500/20 rounded-full blur-2xl" />
+              <img 
+                src="/images/agrotech/temperature_ai.webp" 
+                alt="Temperature AI Sensor"
+                loading="lazy"
+                decoding="async"
+                width="176"
+                height="176"
+                className="w-full h-full object-contain rounded-2xl relative z-10 mix-blend-screen opacity-90 group-hover:opacity-100 transition-opacity"
+              />
             </div>
           </motion.div>
 
-          <motion.div variants={fadeUp} onClick={() => openPopup("Humidity")} className="glass-card p-8 rounded-3xl shadow-lg border-indigo-900/50 flex flex-col justify-between cursor-pointer hover:border-indigo-500/50 hover:shadow-indigo-900/20 transition-all hover:-translate-y-1 relative overflow-hidden h-[300px]">
+          {/* 3. Atmospheric Humidity Card */}
+          <motion.div variants={fadeUp} onClick={() => openPopup("Humidity")} className="glass-card p-6 md:p-7 rounded-3xl shadow-lg border border-indigo-500/30 flex flex-col justify-between cursor-pointer hover:border-indigo-400/80 hover:shadow-[0_0_30px_rgba(99,102,241,0.35)] transition-all duration-300 hover:-translate-y-1 relative overflow-hidden h-[300px] group">
             <div className="relative z-10">
-              <div className="flex items-center justify-between mb-4">
-                <p className="text-gray-300 text-sm font-bold uppercase tracking-wider">Humidity</p>
-                <MdAnalytics className="text-indigo-400 text-2xl" />
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-gray-300 text-xs font-bold uppercase tracking-wider">Atmospheric Humidity</span>
+                <span className="p-2 rounded-xl bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 group-hover:scale-110 group-hover:bg-indigo-500/30 transition-all">
+                  <MdAnalytics className="text-xl" />
+                </span>
               </div>
-              <h3 className="text-6xl font-extrabold text-white tracking-tighter">65<span className="text-4xl text-indigo-300">%</span></h3>
-              <p className="text-sm font-bold text-indigo-200 mt-2 bg-indigo-900/40 w-max px-3 py-1 rounded-full border border-indigo-500/30">Normal</p>
+              <h3 className="text-5xl font-black text-white tracking-tighter">65<span className="text-3xl text-indigo-400 font-bold">%</span></h3>
+              <div className="flex items-center gap-2 mt-2">
+                <span className="text-xs font-bold text-indigo-200 bg-indigo-950/80 px-2.5 py-1 rounded-full border border-indigo-500/40">Normal</span>
+                <span className="text-[11px] text-gray-400 font-medium">Condensation Safe</span>
+              </div>
             </div>
-            <div className="absolute -bottom-4 -right-10 w-64 h-64 opacity-50 pointer-events-none">
-              <Canvas camera={{ position: [0, 0, 5], fov: 45 }}><Cloud3D /></Canvas>
+
+            <div className="relative z-10 flex items-center justify-between pt-3 border-t border-white/10 text-xs text-indigo-200/90 font-medium">
+              <span>Dew Point: 21°C</span>
+              <span className="flex items-center gap-1.5 text-green-400 font-bold"><span className="w-2 h-2 rounded-full bg-green-400 animate-ping" /> Live Sync</span>
+            </div>
+
+            {/* AI Generated 3D Telemetry Asset with Soft Ambient Glow */}
+            <div className="absolute -bottom-4 -right-4 w-44 h-44 pointer-events-none group-hover:scale-110 transition-transform duration-500 ease-out">
+              <div className="absolute inset-0 bg-indigo-500/20 rounded-full blur-2xl" />
+              <img 
+                src="/images/agrotech/humidity_ai.webp" 
+                alt="Humidity AI Sensor"
+                loading="lazy"
+                decoding="async"
+                width="176"
+                height="176"
+                className="w-full h-full object-contain rounded-2xl relative z-10 mix-blend-screen opacity-90 group-hover:opacity-100 transition-opacity"
+              />
             </div>
           </motion.div>
 

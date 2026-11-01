@@ -61,14 +61,17 @@ export default function Email() {
           {/* Left Side: Contact Info / CTA */}
           <div className="md:col-span-2 golden-bg p-8 flex flex-col justify-between relative overflow-hidden">
              <div className="relative z-10">
-                <h2 className="text-2xl font-bold mb-4 text-black">Let's Discuss Your Project</h2>
-                <p className="mb-6 text-black">
-                  Ready to bring your ideas to life? Fill out the form and I'll get back to you within 24 hours.
+                <h2 className="text-2xl font-bold mb-3 text-black">Let&apos;s Build Together</h2>
+                <p className="mb-6 text-black text-sm leading-relaxed">
+                  Whether you require industrial IoT &amp; automation consultancy, precision AgriTech systems, rapid 3D prototyping, or an institutional STEM partnership, our engineering team is ready to collaborate.
                 </p>
                 
-                <div className="flex flex-col space-y-4 font-medium text-black">
+                <div className="flex flex-col space-y-4 font-medium text-black text-sm">
                     <div className="flex items-center space-x-2">
-                        <FiMail /> <span>naziyahcreedmd@gmail.com</span>
+                        <FiMail className="shrink-0" /> <span>naziyahcreedmd@gmail.com</span>
+                    </div>
+                    <div className="text-xs text-black/80 font-semibold pt-2 border-t border-black/20">
+                      📍 Tamil Nadu, India • Multidisciplinary Engineering &amp; Innovation
                     </div>
                 </div>
              </div>
@@ -121,7 +124,7 @@ export default function Email() {
                 <textarea 
                   name="message" 
                   required 
-                  placeholder="Tell me about your project needs..." 
+                  placeholder="Describe your technical challenge, prototyping requirements, or institutional scope..." 
                   className="px-4 py-3 rounded-lg border-none golden-border-textured bg-[var(--bg-primary)]/50 text-[var(--text-primary)] focus:outline-none transition-all w-full h-32 resize-none shadow-inner"
                 ></textarea>
               </div>

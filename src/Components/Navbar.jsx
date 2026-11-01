@@ -1,39 +1,10 @@
 import logo from '/images/logo.webp'
 import { GiCancel } from "react-icons/gi";
 import { IoMenuSharp } from "react-icons/io5";
-import { MdHome, MdInfoOutline, MdMiscellaneousServices, MdFolder, MdCardMembership, MdContactMail, MdAgriculture } from "react-icons/md";
+import { MdHome, MdInfoOutline, MdMiscellaneousServices, MdFolder, MdCardMembership, MdContactMail, MdAgriculture, MdSchool } from "react-icons/md";
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { motion } from 'framer-motion';
 
-
-/* Removes white background from PNG using Canvas */
-const TransparentLogo = ({ src, className, threshold = 230 }) => {
-  const [dataUrl, setDataUrl] = useState(null);
-
-  useEffect(() => {
-    const img = new Image();
-    img.onload = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = img.width;
-      canvas.height = img.height;
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      const data = imageData.data;
-      for (let i = 0; i < data.length; i += 4) {
-        const r = data[i], g = data[i + 1], b = data[i + 2];
-        if (r > threshold && g > threshold && b > threshold) {
-          data[i + 3] = 0; // Make white pixels fully transparent
-        }
-      }
-      ctx.putImageData(imageData, 0, 0);
-      setDataUrl(canvas.toDataURL('image/png'));
-    };
-    img.src = src;
-  }, [src, threshold]);
-
-  return <img src={dataUrl || src} alt="logo" className={className} />;
-};
 
 const Navbar = ({ theme, setTheme }) => {
   const [sidebar, setSidebar] = useState(false);
@@ -72,42 +43,12 @@ const Navbar = ({ theme, setTheme }) => {
         
         {/* Inner Dark Circle holding the logo safely inside the border */}
         <div className="absolute inset-[3px] bg-[var(--navbar-bg)] rounded-full z-10 flex items-center justify-center p-1 overflow-hidden">
-          <TransparentLogo src={logo} className='w-full h-full object-contain' />
+          <img src={logo} alt="Naziyah Creed" className='w-full h-full object-contain' width="128" height="128" loading="eager" decoding="async" />
         </div>
       </div>
 
-      <h1 className='text-2xl min-[400px]:text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-wide text-[var(--accent)] m-2 text-center whitespace-nowrap overflow-hidden text-ellipsis flex items-center justify-center'>
-        {"NAZIYAH CREED".split("").map((letter, index) => (
-          <motion.span
-            key={index}
-            className={`relative inline-block ${letter === " " ? "w-2 sm:w-4" : ""}`}
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              type: "spring", 
-              stiffness: 300, 
-              damping: 12, 
-              delay: index * 0.05,
-              repeat: Infinity,
-              repeatDelay: 5
-            }}
-          >
-            {letter}
-            {letter !== " " && (
-              <motion.span
-                className="absolute -bottom-1 left-0 h-[3px] bg-[#00f3ff] shadow-[0_0_8px_#00f3ff]"
-                initial={{ width: "0%" }}
-                animate={{ width: ["0%", "100%", "0%"], left: ["0%", "0%", "100%"] }}
-                transition={{ 
-                  duration: 2, 
-                  repeat: Infinity, 
-                  ease: "easeInOut", 
-                  delay: index * 0.1 
-                }}
-              />
-            )}
-          </motion.span>
-        ))}
+      <h1 className='text-2xl min-[400px]:text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black tracking-wider text-[var(--accent)] m-2 text-center whitespace-nowrap overflow-hidden text-ellipsis flex items-center justify-center drop-shadow-[0_0_12px_rgba(249,170,51,0.25)]'>
+        NAZIYAH CREED
       </h1>
 
       {/* Overlay for sidebar */}
@@ -149,11 +90,25 @@ const Navbar = ({ theme, setTheme }) => {
           <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--accent)] transition-all duration-300 group-hover:w-full shadow-[0_0_8px_var(--accent)] max-sm:hidden"></span>
         </a>
 
-        <a href="/#service" onClick={() => setSidebar(false)}
+        <a href="/#services" onClick={() => setSidebar(false)}
           className='group relative flex items-center gap-2 text-base font-semibold tracking-wide text-[var(--text-primary)] max-sm:text-white hover:text-[var(--accent)] max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-[var(--accent)] max-sm:pl-3 transition-colors duration-300'>
           <MdMiscellaneousServices className="text-2xl group-hover:scale-110 transition-transform duration-300" /> 
           <span>Services</span>
           <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--accent)] transition-all duration-300 group-hover:w-full shadow-[0_0_8px_var(--accent)] max-sm:hidden"></span>
+        </a>
+
+        <a href="/#3d-printing" onClick={() => setSidebar(false)}
+          className='group relative flex items-center gap-1.5 text-base font-semibold tracking-wide text-amber-400 hover:text-amber-300 max-sm:text-white max-sm:hover:text-amber-400 max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-amber-400 max-sm:pl-3 transition-colors duration-300'>
+          <span className="text-[10px] bg-amber-400 text-black font-extrabold px-1.5 py-0.5 rounded uppercase tracking-wider animate-pulse">NEW</span>
+          <span>3D Lab</span>
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full shadow-[0_0_8px_rgba(251,191,36,0.8)] max-sm:hidden"></span>
+        </a>
+
+        <a href="/#stem-academy" onClick={() => setSidebar(false)}
+          className='group relative flex items-center gap-2 text-base font-semibold tracking-wide text-cyan-400 hover:text-cyan-300 max-sm:text-white max-sm:hover:text-cyan-400 max-sm:border-l-2 max-sm:border-transparent max-sm:hover:border-cyan-400 max-sm:pl-3 transition-colors duration-300'>
+          <MdSchool className="text-2xl group-hover:scale-110 transition-transform duration-300" /> 
+          <span>STEM</span>
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-cyan-400 transition-all duration-300 group-hover:w-full shadow-[0_0_8px_rgba(0,243,255,0.8)] max-sm:hidden"></span>
         </a>
 
         <a href="/#projects" onClick={() => setSidebar(false)}

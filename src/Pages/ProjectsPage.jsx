@@ -9,15 +9,10 @@ const ProjectsPage = () => {
     <div className="min-h-fit bg-[var(--bg-primary)] p-4 md:p-8 font-inter relative">
 
       
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-      `}</style>
-
       <div className="max-w-7xl mx-auto">
         <SEO 
-          title="Our Projects" 
-          description="Explore our portfolio of innovative IoT and Robotics projects for engineering students."
+          title="Engineering & Innovation Projects" 
+          description="Explore our portfolio of engineering, IoT, Robotics, and AgriTech systems developed by Naziyah Creed."
         />
         {selectedProject ? (
           <ProjectDetail

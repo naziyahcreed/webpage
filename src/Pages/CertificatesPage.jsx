@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import CertificateModal from "../Components/CertificateModal";
 import certificatesData from "../data/certificates.json";
@@ -7,21 +7,16 @@ import SEO from "../Components/SEO";
 const categories = ["All", "2024", "2025", "Hackathon"];
 
 export default function CertificatesPage() {
-  const [certificates, setCertificates] = useState([]);
+  const [certificates] = useState(() => 
+    certificatesData.map(c => ({
+      ...c,
+      image_url: c.images ? c.images[0] : (c.image || "")
+    }))
+  );
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("newest");
   const [selectedCertificate, setSelectedCertificate] = useState(null);
-
-  // Load local JSON
-  useEffect(() => {
-    // Use local data directly
-    const localData = certificatesData.map(c => ({
-        ...c,
-        image_url: c.images ? c.images[0] : (c.image || "") // Use first image from array if available
-    }));
-    setCertificates(localData);
-  }, []);
 
   const filtered = certificates
     .filter((c) =>
