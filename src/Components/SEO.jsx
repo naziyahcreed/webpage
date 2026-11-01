@@ -1,14 +1,13 @@
 import React from 'react';
 
-
 const SEO = ({ title, description, keywords, image, url }) => {
-  const siteTitle = "Naziyah Creed | IoT & Robotics Consultancy";
-  const defaultDescription = "Expert engineering project guidance in Automation, IoT, and Robotics for Diploma and UG students. Innovative solutions for academic and industrial projects.";
+  const siteTitle = "Naziyah Creed | Integrated Technology and Innovation Enterprise";
+  const defaultDescription = "Multidisciplinary Technology and Innovation Enterprise specializing in AgriTech, AI, IoT, Robotics, Rapid Prototyping, and STEM Education. Innovate • Engineer • Educate • Transform.";
   
-  // Expanded Keyword List for Ranking
-  const defaultKeywords = "Naziyah Creed, IoT Projects, Robotics Projects, Engineering Consultancy, Final Year Projects, ESP32, Arduino, Raspberry Pi, Python, Home Automation, Smart Systems, Industrial Automation, PCB Design, 3D Printing, MSME Projects, Diploma Engineering Projects, B.Tech Projects, Student Guidance, Tech Prototypes";
+  // Expanded Enterprise Keyword List
+  const defaultKeywords = "Naziyah Creed, Integrated Technology Enterprise, AgriTech, Smart Agriculture, IoT Automation, Robotics, Industrial Automation, Bambu Lab 3D Printing, Rapid Prototyping, STEM Academy, Technical Education, Engineering Consultancy, PCB Design, Embedded Systems, Tamil Nadu, MSME Technology Transfer";
   
-  const defaultImage = "https://naziyahcreed.com/logo.webp"; // Absolute URL preferred for SEO
+  const defaultImage = "https://naziyahcreed.com/images/logo.webp";
   const siteUrl = "https://naziyahcreed.com";
   const currentUrl = url || siteUrl;
 

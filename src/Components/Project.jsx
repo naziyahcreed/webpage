@@ -1,6 +1,6 @@
 
 import { ChevronLeft, PlayCircle } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { motion } from "framer-motion";
@@ -50,11 +50,7 @@ const ProjectCard = ({ project, onSelect }) => (
  * List View Component with Horizontal Scrolling
  */
 const ProjectList = ({ onSelectProject }) => {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    setProjects(projectsData);
-  }, []);
+  const [projects] = useState(projectsData);
 
   return (
     <div className="pt-4 pb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

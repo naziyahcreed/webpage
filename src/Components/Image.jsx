@@ -31,8 +31,8 @@ export default function Image() {
         max-3xl:w-full max-3xl:h-[700px] max-4xl:w-full max-4xl:h-[700px] 
         max-6xl:h-[700px] rounded-[10px] overflow-hidden p-[2px] transition-shadow duration-500 hover:shadow-[0_0_30px_5px_var(--accent)]"
       >
-        {/* Animated Running Border Background (Sharp, no glow, golden only) */}
-        <div className="absolute w-[200vw] h-[200vw] animate-[spin_5s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,transparent_50%,var(--accent)_70%,var(--accent)_100%)]"></div>
+        {/* Animated Running Border Background (Optimized boundary, GPU-composited) */}
+        <div className="absolute -inset-[50%] animate-[spin_6s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,transparent_50%,var(--accent)_70%,var(--accent)_100%)] pointer-events-none will-change-transform"></div>
 
         {/* Inner container to hold the Swiper and hide the center of the gradient */}
         <div className="relative w-full h-full rounded-md overflow-hidden z-10 bg-[var(--bg-primary)]">
@@ -50,7 +50,12 @@ export default function Image() {
               <motion.img
                 key={activeIndex + "-" + index}  // 🔥 Forces animation restart each slide
                 src={slide.img}
-                alt=""
+                alt={slide.text}
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : "auto"}
+                decoding={index === 0 ? "sync" : "async"}
+                width="1200"
+                height="700"
                 className="w-full h-full object-cover rounded-md"
                 initial={{ scale: 1 }}
                 animate={activeIndex === index ? { scale: 1.1 } : { scale: 1 }} // ✅ active slide only zoom
